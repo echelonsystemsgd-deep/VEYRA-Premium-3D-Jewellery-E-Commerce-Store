@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0a0a0c;
+  --bg-surface: #111114;
+  --bg-card: rgba(18, 18, 22, 0.65);
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-active: rgba(255, 255, 255, 0.22);
+  
+  --color-silver: #c2c5c8;
+  --color-bronze: #8c725c;
+  --color-brass: #c9a767;
+  --color-garnet: #8a1f24;
+
+  --text-pure: #faf9f6;
+  --text-muted: #888785;
+  --text-faint: #4a4947;
+
+  --font-serif-display: 'Cinzel', serif;
+  --font-serif-editorial: 'Cormorant Garamond', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  background-color: var(--bg-primary);
+  color: var(--text-pure);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  selection-background-color: #333;
+  selection-color: #fff;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
+}
+::-webkit-scrollbar-thumb {
+  background: #232328;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3e3e46;
+}
+
+/* Typography Helpers */
+.font-display {
+  font-family: var(--font-serif-display);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.font-editorial {
+  font-family: var(--font-serif-editorial);
+  letter-spacing: 0.04em;
+}
+
+.font-ui {
+  font-family: var(--font-sans);
+  letter-spacing: 0.06em;
+}
+
+/* Luxury Glassmorphism & Borders */
+.luxury-glass {
+  background: rgba(14, 14, 18, 0.72);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-subtle);
+}
+
+.luxury-card {
+  background: radial-gradient(circle at 50% 0%, rgba(32, 32, 40, 0.35) 0%, rgba(12, 12, 15, 0.8) 100%);
+  border: 1px solid var(--border-subtle);
+  transition: border-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover {
+  border-color: var(--border-active);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+/* Subtle Light Flare Animation */
+@keyframes flareDrift {
+  0% { transform: translate(-30%, -20%) scale(1); opacity: 0.2; }
+  50% { transform: translate(30%, 20%) scale(1.15); opacity: 0.45; }
+  100% { transform: translate(-30%, -20%) scale(1); opacity: 0.2; }
+}
+
+.ambient-flare {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(90px);
+  animation: flareDrift 22s ease-in-out infinite;
+}
+
+/* Interactive Button Luxury Styles */
+.btn-luxury-solid {
+  background-color: var(--text-pure);
+  color: var(--bg-primary);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 14px 28px;
+  border: 1px solid var(--text-pure);
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-luxury-solid:hover {
+  background-color: transparent;
+  color: var(--text-pure);
+}
+
+.btn-luxury-outline {
+  background-color: transparent;
+  color: var(--text-pure);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 14px 28px;
+  border: 1px solid var(--border-active);
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-luxury-outline:hover {
+  border-color: var(--text-pure);
+  background: rgba(255, 255, 255, 0.05);
+}
