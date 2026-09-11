@@ -14,18 +14,18 @@ export const App: React.FC = () => {
   return (
     <CartProvider>
       <SmoothScroll>
-        <div className="min-h-screen bg-[#08080a] text-[#faf9f6] selection:bg-white/20 selection:text-white relative">
-          {/* Header */}
+        <div className="min-h-screen bg-[#f8f8f9] text-[#121214] relative selection:bg-black/10 selection:text-black">
+          {/* Top Navigation */}
           <Navbar />
 
           <main>
-            {/* Hero Scene with Hand & Rings */}
+            {/* Hero Section with Model, Reaching Hand & Lens Flare Sparkle */}
             <HeroOverlay />
 
-            {/* Collection Gallery */}
+            {/* Collection 3-Column Hairline Grid */}
             <ProductGrid />
 
-            {/* Editorial & Metallurgy */}
+            {/* Editorial "Made Without Compromise" Section */}
             <EditorialSection />
           </main>
 

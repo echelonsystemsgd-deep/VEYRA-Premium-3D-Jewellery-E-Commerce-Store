@@ -16,7 +16,7 @@ export const PrivateViewingModal: React.FC = () => {
   const [selectedPieceId, setSelectedPieceId] = useState<string>(
     selectedPrivateViewingProduct ? selectedPrivateViewingProduct.id : PRODUCTS[0].id
   )
-  const [consultationType, setConsultationType] = useState<'virtual' | 'mayfair' | 'manhattan'>('virtual')
+  const [consultationType, setConsultationType] = useState<'virtual' | 'mayfair' | 'tribeca'>('virtual')
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
 
@@ -48,19 +48,19 @@ export const PrivateViewingModal: React.FC = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={handleClose}
-          className="fixed inset-0 bg-[#050507]/90 backdrop-blur-xl"
+          className="fixed inset-0 bg-black/40 backdrop-blur-md"
         />
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.96, y: 25 }}
+          initial={{ opacity: 0, scale: 0.96, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 15 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-xl bg-[#0e0e12] border border-white/10 p-8 sm:p-10 shadow-2xl rounded-sm z-10"
+          className="relative w-full max-w-lg bg-[#ffffff] border border-[#e5e5e7] p-8 sm:p-10 shadow-2xl rounded-sm z-10 text-[#121214]"
         >
           <button
             onClick={handleClose}
-            className="absolute top-6 right-6 text-[#73726f] hover:text-white transition-colors"
+            className="absolute top-6 right-6 text-[#777] hover:text-black transition-colors"
             aria-label="Close"
           >
             <X className="w-5 h-5" />
@@ -68,38 +68,38 @@ export const PrivateViewingModal: React.FC = () => {
 
           {submitted ? (
             <div className="text-center py-8">
-              <CheckCircle2 className="w-12 h-12 text-[#c9a767] mx-auto mb-4" />
-              <h3 className="font-display text-2xl tracking-[0.16em] text-[#faf9f6]">
+              <CheckCircle2 className="w-12 h-12 text-[#967538] mx-auto mb-4" />
+              <h3 className="font-editorial text-3xl text-[#121214]">
                 CONSULTATION SECURED
               </h3>
-              <p className="text-xs text-[#9c9b98] tracking-[0.06em] mt-3 leading-relaxed max-w-md mx-auto">
-                Our Private Salon Concierge will contact you within 4 hours to arrange an exclusive examination of your selected piece with physical material samples.
+              <p className="text-xs text-[#666] tracking-[0.04em] mt-3 leading-relaxed max-w-md mx-auto">
+                Our Private Salon Concierge will contact you shortly to coordinate an exclusive examination of your selected piece with physical metallurgy samples.
               </p>
               <button
                 onClick={handleClose}
-                className="mt-8 btn-luxury-solid"
+                className="mt-8 btn-gallery-primary"
               >
                 Close Dossier
               </button>
             </div>
           ) : (
             <div>
-              <div className="flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-[#c9a767] mb-2">
+              <div className="flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-[#967538] mb-2 font-medium">
                 <Sparkles className="w-3 h-3" />
-                <span>Private Viewing Appointment</span>
+                <span>Private Salon Appointment</span>
               </div>
 
-              <h3 className="font-display text-2xl sm:text-3xl tracking-[0.14em] text-[#faf9f6]">
-                SALON APPOINTMENT
+              <h3 className="font-editorial text-3xl sm:text-4xl text-[#121214] font-normal tracking-wide">
+                Private Viewing
               </h3>
-              <p className="text-xs text-[#8f8e8b] tracking-[0.06em] mt-2">
+              <p className="text-xs text-[#666] tracking-[0.04em] mt-2">
                 Request a dedicated examination session for high-ticket permanent commissions and bespoke signet seals.
               </p>
 
-              <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+              <form onSubmit={handleSubmit} className="mt-8 space-y-4">
                 <div>
-                  <label className="block text-[10px] tracking-[0.2em] uppercase text-[#969592] mb-1.5">
-                    Your Name
+                  <label className="block text-[10px] tracking-[0.2em] uppercase text-[#777] mb-1 font-mono">
+                    Full Name
                   </label>
                   <input
                     type="text"
@@ -107,13 +107,13 @@ export const PrivateViewingModal: React.FC = () => {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="Lord / Lady / Collector"
-                    className="w-full bg-white/[0.03] border border-white/10 px-4 py-3 text-xs tracking-wider text-[#faf9f6] focus:border-white/30 focus:outline-none rounded-sm placeholder-[#555]"
+                    className="w-full bg-[#f8f8fa] border border-[#e5e5e7] px-4 py-2.5 text-xs text-[#121214] focus:border-black focus:outline-none rounded-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[10px] tracking-[0.2em] uppercase text-[#969592] mb-1.5">
-                    Private Email / Direct Line
+                  <label className="block text-[10px] tracking-[0.2em] uppercase text-[#777] mb-1 font-mono">
+                    Direct Email / Telephone
                   </label>
                   <input
                     type="email"
@@ -121,18 +121,18 @@ export const PrivateViewingModal: React.FC = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="concierge@collector.com"
-                    className="w-full bg-white/[0.03] border border-white/10 px-4 py-3 text-xs tracking-wider text-[#faf9f6] focus:border-white/30 focus:outline-none rounded-sm placeholder-[#555]"
+                    className="w-full bg-[#f8f8fa] border border-[#e5e5e7] px-4 py-2.5 text-xs text-[#121214] focus:border-black focus:outline-none rounded-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[10px] tracking-[0.2em] uppercase text-[#969592] mb-1.5">
+                  <label className="block text-[10px] tracking-[0.2em] uppercase text-[#777] mb-1 font-mono">
                     Piece for Inspection
                   </label>
                   <select
                     value={selectedPieceId}
                     onChange={(e) => setSelectedPieceId(e.target.value)}
-                    className="w-full bg-[#141418] border border-white/10 px-4 py-3 text-xs tracking-wider text-[#faf9f6] focus:border-white/30 focus:outline-none rounded-sm"
+                    className="w-full bg-[#f8f8fa] border border-[#e5e5e7] px-4 py-2.5 text-xs text-[#121214] focus:border-black focus:outline-none rounded-sm"
                   >
                     {PRODUCTS.map(p => (
                       <option key={p.id} value={p.id}>
@@ -143,23 +143,23 @@ export const PrivateViewingModal: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-[10px] tracking-[0.2em] uppercase text-[#969592] mb-1.5">
-                    Consultation Salon
+                  <label className="block text-[10px] tracking-[0.2em] uppercase text-[#777] mb-1 font-mono">
+                    Salon Location
                   </label>
                   <div className="grid grid-cols-3 gap-2">
                     {[
                       { id: 'virtual', label: 'Virtual 3D' },
                       { id: 'mayfair', label: 'London, Mayfair' },
-                      { id: 'manhattan', label: 'New York, Tribeca' }
+                      { id: 'tribeca', label: 'New York, Tribeca' }
                     ].map((salon) => (
                       <button
                         type="button"
                         key={salon.id}
                         onClick={() => setConsultationType(salon.id as any)}
-                        className={`py-2 px-2 text-center text-[10px] tracking-[0.12em] uppercase border rounded-sm transition-all ${
+                        className={`py-2 px-1 text-center text-[10px] tracking-[0.1em] uppercase border rounded-sm transition-all ${
                           consultationType === salon.id
-                            ? 'border-white bg-white/10 text-white'
-                            : 'border-white/10 text-[#71706e] hover:border-white/20'
+                            ? 'border-black bg-black text-white'
+                            : 'border-[#e5e5e7] text-[#666] hover:border-black/40'
                         }`}
                       >
                         {salon.label}
@@ -172,7 +172,7 @@ export const PrivateViewingModal: React.FC = () => {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="btn-luxury-solid w-full"
+                    className="btn-gallery-primary w-full"
                   >
                     {submitting ? (
                       <span>Dispatching Request...</span>

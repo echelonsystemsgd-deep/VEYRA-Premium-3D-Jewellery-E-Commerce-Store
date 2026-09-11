@@ -1,127 +1,118 @@
 import React, { useState, useEffect } from 'react'
 import { useCart } from '../../context/CartContext'
-import { ShoppingBag, Sparkles, Menu, X } from 'lucide-react'
 
 export const Navbar: React.FC = () => {
   const { cartCount, setIsCartOpen, openPrivateViewing } = useCart()
   const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40)
+      setScrolled(window.scrollY > 30)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const scrollTo = (id: string) => {
-    setMobileMenuOpen(false)
+    setMenuOpen(false)
     const el = document.getElementById(id)
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' })
-    }
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-40 transition-all duration-700 ${
+      className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#0a0a0c]/85 backdrop-blur-md border-b border-white/[0.06] py-4'
+          ? 'bg-[#f6f6f8]/90 backdrop-blur-md border-b border-[#e5e5e7] py-4'
           : 'bg-transparent py-6 md:py-8'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        {/* Left Navigation */}
-        <nav className="hidden md:flex items-center space-x-10 text-[11px] tracking-[0.22em] uppercase text-[#a5a4a0]">
+        {/* Left: Brand Identity & Emblem (matching the video's top-left circular logo) */}
+        <div
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="flex items-center gap-3 cursor-pointer select-none group"
+        >
+          {/* Custom geometric monogram emblem */}
+          <div className="w-8 h-8 rounded-full border border-[#121214] flex items-center justify-center relative">
+            <span className="font-editorial italic text-base text-[#121214] -mt-0.5">V</span>
+            <div className="absolute inset-0 rounded-full border border-black/10 group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div>
+            <span className="font-display text-lg tracking-[0.25em] text-[#121214] font-medium leading-none block">
+              VEYRA
+            </span>
+            <span className="text-[7px] tracking-[0.3em] uppercase text-[#7a7a7e] block mt-0.5">
+              Forged in Silence
+            </span>
+          </div>
+        </div>
+
+        {/* Center: Minimalist Link (Matching 'ABOUT' in the video) */}
+        <div className="hidden md:flex items-center space-x-12 text-[11px] tracking-[0.22em] uppercase text-[#5e5e62]">
           <button
             onClick={() => scrollTo('collection')}
-            className="hover:text-white transition-colors duration-300"
+            className="hover:text-black transition-colors duration-300"
           >
             Collection
           </button>
           <button
+            onClick={() => scrollTo('editorial')}
+            className="hover:text-black transition-colors duration-300"
+          >
+            About
+          </button>
+          <button
             onClick={() => scrollTo('metallurgy')}
-            className="hover:text-white transition-colors duration-300"
+            className="hover:text-black transition-colors duration-300"
           >
             Metallurgy
           </button>
-          <button
-            onClick={() => scrollTo('editorial')}
-            className="hover:text-white transition-colors duration-300"
-          >
-            Manifesto
-          </button>
-        </nav>
-
-        {/* Center Brand Identity */}
-        <div className="text-center select-none cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <span className="font-display text-xl md:text-2xl tracking-[0.35em] text-[#faf9f6] block font-light">
-            VEYRA
-          </span>
-          <span className="text-[8px] tracking-[0.45em] text-[#71706e] uppercase block mt-0.5">
-            Forged in Silence
-          </span>
         </div>
 
-        {/* Right Navigation & Bag */}
-        <div className="flex items-center space-x-6 md:space-x-8 text-[11px] tracking-[0.2em] uppercase">
-          <button
-            onClick={() => openPrivateViewing()}
-            className="hidden lg:inline-flex items-center gap-2 text-[#b0aba3] hover:text-white transition-colors duration-300"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-[#c9a767]" />
-            <span>Private Viewing</span>
-          </button>
-
-          <span className="hidden sm:inline-block text-[#52514f] text-[10px] tracking-[0.15em]">
-            USD ($)
-          </span>
-
-          {/* Bag Trigger */}
+        {/* Right: [ BAG: 0 ] and ||| Menu (Matching video) */}
+        <div className="flex items-center space-x-6 text-[11px] tracking-[0.2em] uppercase">
+          {/* Bag button styled as [ BAG: X ] */}
           <button
             onClick={() => setIsCartOpen(true)}
-            className="relative flex items-center gap-2.5 text-[#faf9f6] hover:text-[#c9a767] transition-colors duration-300 py-1"
-            aria-label="Open Cart"
+            className="text-[#121214] hover:text-[#777] transition-colors duration-300 font-mono text-[11px]"
+            aria-label="View Bag"
           >
-            <ShoppingBag className="w-4 h-4 stroke-[1.5]" />
-            <span className="hidden sm:inline text-[11px] tracking-[0.2em]">Bag</span>
-            {cartCount > 0 && (
-              <span className="w-4 h-4 rounded-full bg-[#faf9f6] text-[#0a0a0c] text-[9px] font-semibold flex items-center justify-center -ml-1">
-                {cartCount}
-              </span>
-            )}
+            [ BAG: {cartCount} ]
           </button>
 
-          {/* Mobile Hamburger */}
+          {/* Architectural Menu Trigger: 3 vertical hairline bars ||| */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white p-1"
-            aria-label="Toggle Menu"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex items-center gap-[3px] p-1.5 hover:opacity-60 transition-opacity"
+            aria-label="Menu"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            <span className="w-[1.5px] h-4 bg-[#121214]" />
+            <span className="w-[1.5px] h-4 bg-[#121214]" />
+            <span className="w-[1.5px] h-4 bg-[#121214]" />
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-full bg-[#0d0d10] border-b border-white/10 p-8 flex flex-col space-y-6 text-center text-xs tracking-[0.25em] uppercase text-[#a5a4a0]">
-          <button onClick={() => scrollTo('collection')} className="hover:text-white">
-            Collection
+      {/* Slide-down Minimal Menu */}
+      {menuOpen && (
+        <div className="fixed inset-x-0 top-full bg-[#f6f6f8] border-b border-[#e5e5e7] py-8 px-6 flex flex-col items-center space-y-6 text-center text-xs tracking-[0.25em] uppercase text-[#444] shadow-lg">
+          <button onClick={() => scrollTo('collection')} className="hover:text-black">
+            The Archive
           </button>
-          <button onClick={() => scrollTo('metallurgy')} className="hover:text-white">
-            Metallurgy
+          <button onClick={() => scrollTo('editorial')} className="hover:text-black">
+            Made Without Compromise
           </button>
-          <button onClick={() => scrollTo('editorial')} className="hover:text-white">
-            Manifesto
+          <button onClick={() => scrollTo('metallurgy')} className="hover:text-black">
+            Living Metallurgy
           </button>
           <button
             onClick={() => {
-              setMobileMenuOpen(false)
+              setMenuOpen(false)
               openPrivateViewing()
             }}
-            className="text-[#c9a767] pt-2"
+            className="text-[#967538] font-medium pt-2"
           >
             Request Private Viewing
           </button>

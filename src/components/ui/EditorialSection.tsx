@@ -1,149 +1,100 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Shield, Hammer, Flame, Award } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export const EditorialSection: React.FC = () => {
+  const scrollToCollection = () => {
+    const el = document.getElementById('collection')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
-    <div className="relative bg-[#09090b] text-[#faf9f6] overflow-hidden">
-      {/* 1. Manifesto / Made Without Compromise Section */}
-      <section id="editorial" className="py-28 md:py-44 border-t border-white/[0.06] relative">
-        <div className="max-w-6xl mx-auto px-6 md:px-12">
-          <div className="text-center max-w-3xl mx-auto">
-            <span className="text-[10px] tracking-[0.4em] uppercase text-[#c9a767] block mb-4">
-              Manifesto
-            </span>
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl tracking-[0.16em] font-light leading-tight">
-              MADE WITHOUT COMPROMISE
-            </h2>
-            <p className="font-editorial text-xl sm:text-2xl md:text-3xl text-[#d0cec9] italic mt-8 leading-relaxed font-light">
-              "We reject the hollow, plated, mass-produced jewellery of the modern era. VEYRA exists for those who demand permanent weight and quiet authority."
-            </p>
-          </div>
-
-          {/* Pillars */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-20 md:mt-28">
-            {[
-              {
-                icon: Hammer,
-                title: 'SOLID NON-HOLLOW CASTING',
-                desc: 'Every ring is poured in massive solid metal. When you set a VEYRA piece onto a table, it lands with an unmistakable, resonant thud.'
-              },
-              {
-                icon: Flame,
-                title: 'PERMANENT METALLURGY',
-                desc: 'No micron plating. No synthetic varnish. We rely exclusively on ancient thermal blackening, liver of sulfur patinas, and natural oxidation.'
-              },
-              {
-                icon: Award,
-                title: 'LIFETIME GUARANTEE',
-                desc: 'Forged to endure decades of direct skin contact, seawater, and physical friction. Should a piece ever compromise structurally, we recast it gratis.'
-              }
-            ].map((pillar, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: idx * 0.15 }}
-                className="p-8 bg-white/[0.02] border border-white/[0.06] rounded-sm hover:border-white/20 transition-all duration-500"
-              >
-                <pillar.icon className="w-6 h-6 text-[#c9a767] mb-6 stroke-[1.5]" />
-                <h3 className="font-display text-sm tracking-[0.2em] text-[#faf9f6] mb-3">
-                  {pillar.title}
-                </h3>
-                <p className="text-xs text-[#8c8a86] tracking-[0.05em] leading-relaxed">
-                  {pillar.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Metallurgy Showcase (Deep Texture Exploration) */}
-      <section id="metallurgy" className="py-24 md:py-36 bg-[#070709] border-t border-b border-white/[0.06]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Visual Mosaic from Reference Assets */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="aspect-[3/4] rounded-sm overflow-hidden border border-white/10 bg-[#121216]">
-                  <img
-                    src="/images/rtzOI.jpg"
-                    alt="Macro relief texture"
-                    className="w-full h-full object-cover grayscale contrast-125 hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-                <div className="aspect-square rounded-sm overflow-hidden border border-white/10 bg-[#121216]">
-                  <img
-                    src="/images/S2JNA.jpg"
-                    alt="Bronze ring on slate"
-                    className="w-full h-full object-cover grayscale contrast-125 hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-              </div>
-              <div className="space-y-4 pt-8">
-                <div className="aspect-square rounded-sm overflow-hidden border border-white/10 bg-[#121216]">
-                  <img
-                    src="/images/c1Qnj.jpg"
-                    alt="Stacked raw brass bands"
-                    className="w-full h-full object-cover grayscale contrast-125 hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-                <div className="aspect-[3/4] rounded-sm overflow-hidden border border-white/10 bg-[#121216]">
-                  <img
-                    src="/images/uQViM.jpg"
-                    alt="VEYRA engraved signet"
-                    className="w-full h-full object-cover grayscale contrast-125 hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Metallurgy Copy */}
+    <section id="editorial" className="relative bg-transparent text-[#121214] border-t border-[#e5e5e7] overflow-hidden">
+      {/* Container with matching architectural grid borders */}
+      <div className="max-w-7xl mx-auto border-x border-[#e5e5e7] bg-[#f6f6f8]/80 backdrop-blur-sm relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12">
+          {/* Left Column: Manifesto & Philosophy (Matching 00:07 in video) */}
+          <div className="lg:col-span-7 p-10 sm:p-16 lg:p-20 border-b lg:border-b-0 lg:border-r border-[#e5e5e7] flex flex-col justify-between">
             <div>
-              <span className="text-[10px] tracking-[0.35em] uppercase text-[#c9a767] block mb-3">
-                The Raw Elements
-              </span>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl tracking-[0.16em] font-light text-[#faf9f6]">
-                METALS THAT REMEMBER
+              <h2 className="font-editorial text-4xl sm:text-6xl md:text-7xl font-normal tracking-[0.02em] text-[#121214] leading-[0.95] mb-12">
+                Made Without<br />Compromise
               </h2>
-              <p className="font-editorial text-lg text-[#b8b6b2] italic mt-6 leading-relaxed">
-                We believe a jewel must change as you live. Our metals are unlacquered and unshielded by artificial polymers.
+
+              <div className="space-y-6 text-sm text-[#4d4d52] leading-relaxed max-w-xl font-normal">
+                <p>
+                  Each ring is forged by a single pair of hands — no factory floor, no assembly line. The material is chosen first, the form follows its nature.
+                </p>
+                <p>
+                  We work in oxidized silver, blackened bronze, and raw brass. Weights are deliberate. Edges are left where they fall. Nothing is smoothed for comfort.
+                </p>
+                <p className="text-[#121214] font-medium">
+                  VEYRA exists for those who wear jewelry that means something. Not decoration — declaration. One piece at a time, made to last a lifetime.
+                </p>
+              </div>
+            </div>
+
+            {/* "VIEW COLLECTION ➔" */}
+            <div className="pt-16">
+              <button
+                onClick={scrollToCollection}
+                className="group inline-flex items-center gap-4 text-xs tracking-[0.25em] uppercase text-[#121214] font-medium"
+              >
+                <span>View Collection</span>
+                <div className="w-9 h-9 rounded-full border border-black/20 group-hover:border-black flex items-center justify-center transition-all duration-300 group-hover:translate-x-1">
+                  <ArrowRight className="w-3 h-3 stroke-[1.5]" />
+                </div>
+              </button>
+            </div>
+          </div>
+
+          {/* Right Column: 3 Architectural Specification Cells (Matching 00:07 in video) */}
+          <div className="lg:col-span-5 flex flex-col">
+            {/* Cell 1: Deliberate Weight */}
+            <div className="p-10 sm:p-14 border-b border-[#e5e5e7] flex flex-col justify-between flex-1 hover:bg-white transition-colors">
+              <div className="flex justify-between items-baseline">
+                <h3 className="font-editorial text-3xl sm:text-4xl text-[#121214] font-normal tracking-wide">
+                  Deliberate Weight
+                </h3>
+                <span className="text-[10px] font-mono text-[#88888c] uppercase">[ 01 ]</span>
+              </div>
+              <p className="text-xs tracking-[0.06em] text-[#55555a] uppercase mt-6 leading-relaxed">
+                Each ring is a physical presence you feel
               </p>
+            </div>
 
-              <div className="mt-10 space-y-6">
-                <div className="border-l-2 border-[#8d9297] pl-6 py-1">
-                  <h4 className="font-display text-sm tracking-[0.18em] text-[#faf9f6]">
-                    OXIDISED 925 SILVER
-                  </h4>
-                  <p className="text-xs text-[#8c8a86] tracking-[0.05em] mt-1.5 leading-relaxed">
-                    Cold-bathed in elemental sulfur. The deep recessed grooves stay pitch black, while high-contact facets buff to a bright white specular glow with daily friction.
-                  </p>
-                </div>
+            {/* Cell 2: Sterling & Silver */}
+            <div className="p-10 sm:p-14 border-b border-[#e5e5e7] flex flex-col justify-between flex-1 hover:bg-white transition-colors">
+              <div className="flex justify-between items-baseline">
+                <h3 className="font-editorial text-3xl sm:text-4xl text-[#121214] font-normal tracking-wide">
+                  Sterling & Silver
+                </h3>
+                <span className="text-[10px] font-mono text-[#88888c] uppercase">[ 02 ]</span>
+              </div>
+              <p className="text-xs tracking-[0.06em] text-[#55555a] uppercase mt-6 leading-relaxed">
+                Oxidized metals only — no plating, no compromise
+              </p>
+            </div>
 
-                <div className="border-l-2 border-[#8c725c] pl-6 py-1">
-                  <h4 className="font-display text-sm tracking-[0.18em] text-[#faf9f6]">
-                    THERMALLY BLACKENED BRONZE
-                  </h4>
-                  <p className="text-xs text-[#8c8a86] tracking-[0.05em] mt-1.5 leading-relaxed">
-                    Silicon bronze heated until its surface converts into a resilient charcoal oxide. Warm copper tones slowly emerge along beveled edges over months of contact.
-                  </p>
-                </div>
-
-                <div className="border-l-2 border-[#c9a767] pl-6 py-1">
-                  <h4 className="font-display text-sm tracking-[0.18em] text-[#faf9f6]">
-                    UNLACQUERED RAW BRASS
-                  </h4>
-                  <p className="text-xs text-[#8c8a86] tracking-[0.05em] mt-1.5 leading-relaxed">
-                    Satin finished with zero synthetic sealants. It reacts directly to humidity and natural oils, forging a living, golden-brown heirloom signature.
-                  </p>
-                </div>
+            {/* Cell 3: Lifetime Guarantee */}
+            <div className="p-10 sm:p-14 flex flex-col justify-between flex-1 hover:bg-white transition-colors">
+              <div className="flex justify-between items-baseline">
+                <h3 className="font-editorial text-3xl sm:text-4xl text-[#121214] font-normal tracking-wide">
+                  Lifetime Guarantee
+                </h3>
+                <span className="text-[10px] font-mono text-[#88888c] uppercase">[ 03 ]</span>
+              </div>
+              <div className="mt-6 flex flex-col gap-1">
+                <p className="text-xs tracking-[0.06em] text-[#55555a] uppercase leading-relaxed">
+                  We stand behind every piece we make, forever.
+                </p>
+                <span className="text-[10px] tracking-[0.2em] font-mono text-[#99999f] uppercase pt-2">
+                  Est. VEYRA Studio 2018
+                </span>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   )
 }
