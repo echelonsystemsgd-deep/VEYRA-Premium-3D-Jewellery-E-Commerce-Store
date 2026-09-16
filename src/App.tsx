@@ -2,7 +2,7 @@ import React from 'react'
 import { CartProvider } from './context/CartContext'
 import { SmoothScroll } from './components/common/SmoothScroll'
 import { Navbar } from './components/ui/Navbar'
-import { HeroOverlay } from './components/ui/HeroOverlay'
+import { CinematicHero } from './components/hero/CinematicHero'
 import { ProductGrid } from './components/ui/ProductGrid'
 import { EditorialSection } from './components/ui/EditorialSection'
 import { Footer } from './components/ui/Footer'
@@ -19,8 +19,8 @@ export const App: React.FC = () => {
           <Navbar />
 
           <main>
-            {/* Hero Section with Model, Reaching Hand & Lens Flare Sparkle */}
-            <HeroOverlay />
+            {/* Cinematic 3-Beat Scroll-Scrub Hero Section */}
+            <CinematicHero />
 
             {/* Collection 3-Column Hairline Grid */}
             <ProductGrid />

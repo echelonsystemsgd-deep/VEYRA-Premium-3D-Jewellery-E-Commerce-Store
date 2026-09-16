@@ -1,9 +1,6 @@
-import React, { useState, Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { PRODUCTS, MaterialType, MATERIAL_CONFIG } from '../../data/products'
-import { FloatingGalleryRing } from '../3d/FloatingGalleryRing'
-import { StudioLighting } from '../3d/StudioLighting'
 import { useCart } from '../../context/CartContext'
 
 export const ProductGrid: React.FC = () => {
@@ -44,27 +41,16 @@ export const ProductGrid: React.FC = () => {
                   !isRightCol ? 'md:border-r border-[#e5e5e7]' : ''
                 }`}
               >
-                {/* 3D Floating Ring Viewport */}
-                <div className="relative w-full h-72 sm:h-80 flex items-center justify-center">
-                  <Canvas
-                    camera={{ position: [0, 0.4, 3.2], fov: 42 }}
-                    dpr={[1, 1.5]}
-                    gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
-                  >
-                    <Suspense fallback={null}>
-                      <StudioLighting
-                        interactive={false}
-                        intensity={1.05}
-                        shadowOpacity={0.25}
-                      />
-                      <FloatingGalleryRing
-                        modelType={product.modelType}
-                        materialType={currentMat}
-                        isHovered={isHovered}
-                        floatOffset={index * 0.7}
-                      />
-                    </Suspense>
-                  </Canvas>
+                {/* High-Resolution Editorial Product Photography */}
+                <div className="relative w-full h-72 sm:h-80 flex items-center justify-center overflow-hidden p-6">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    loading="lazy"
+                    className="w-full h-full object-contain filter contrast-[1.04] brightness-[0.98] group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  {/* Subtle gallery shadow beneath ring */}
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-3 bg-black/10 blur-md rounded-full pointer-events-none" />
                 </div>
 
                 {/* Ring Metadata (Matching Video: Name & Price centered below) */}
