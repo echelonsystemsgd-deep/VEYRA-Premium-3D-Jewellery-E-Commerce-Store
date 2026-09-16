@@ -4,21 +4,23 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         veyra: {
-          bg: '#fafaf9',
+          bg: '#fbf9f5',
           surface: '#ffffff',
-          subtle: '#f5f5f4',
-          border: '#e7e5e4',
-          'border-subtle': '#f0eeec',
+          subtle: '#f6f3ed',
+          border: '#e7e2da',
+          'border-subtle': '#eeebe5',
           text: '#1c1917',
-          muted: '#78716c',
-          faint: '#a8a29e',
-          silver: '#8d9297',
+          muted: '#57534e',
+          faint: '#8c827a',
+          silver: '#787c82',
           bronze: '#785942',
           brass: '#967538',
+          gold: '#b38728',
           garnet: '#881337'
         }
       },

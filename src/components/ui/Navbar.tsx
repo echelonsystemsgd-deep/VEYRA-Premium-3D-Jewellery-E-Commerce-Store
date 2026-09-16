@@ -97,22 +97,32 @@ export const Navbar: React.FC = () => {
 
       {/* Slide-down Minimal Menu */}
       {menuOpen && (
-        <div className="fixed inset-x-0 top-full bg-veyra-bg border-b border-veyra-border py-8 px-6 flex flex-col items-center space-y-6 text-center text-xs tracking-[0.25em] uppercase text-veyra-muted shadow-lg">
-          <button onClick={() => scrollTo('collection')} className="hover:text-veyra-text">
+        <div className="fixed inset-x-0 top-full bg-veyra-surface/98 backdrop-blur-xl border-b border-veyra-border py-10 px-6 flex flex-col items-center space-y-6 text-center text-xs tracking-[0.25em] uppercase text-veyra-text shadow-xl animate-in slide-in-from-top-2 duration-300">
+          <button
+            onClick={() => scrollTo('collection')}
+            className="hover:text-veyra-brass py-2 text-sm font-medium transition-colors"
+          >
             The Archive
           </button>
-          <button onClick={() => scrollTo('editorial')} className="hover:text-veyra-text">
+          <button
+            onClick={() => scrollTo('editorial')}
+            className="hover:text-veyra-brass py-2 text-sm font-medium transition-colors"
+          >
             Made Without Compromise
           </button>
-          <button onClick={() => scrollTo('metallurgy')} className="hover:text-veyra-text">
+          <button
+            onClick={() => scrollTo('collection')}
+            className="hover:text-veyra-brass py-2 text-sm font-medium transition-colors"
+          >
             Living Metallurgy
           </button>
+          <div className="w-12 h-px bg-veyra-border my-2" />
           <button
             onClick={() => {
               setMenuOpen(false)
               openPrivateViewing()
             }}
-            className="text-veyra-brass font-medium pt-2"
+            className="text-veyra-brass hover:text-veyra-text font-medium py-2 tracking-[0.28em] transition-colors"
           >
             Request Private Viewing
           </button>
