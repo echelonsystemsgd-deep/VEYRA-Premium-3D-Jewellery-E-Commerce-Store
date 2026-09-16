@@ -14,7 +14,7 @@ export const App: React.FC = () => {
   return (
     <CartProvider>
       <SmoothScroll>
-        <div className="min-h-screen bg-[#f8f8f9] text-[#121214] relative selection:bg-black/10 selection:text-black">
+        <div className="min-h-screen bg-veyra-bg text-veyra-text relative selection:bg-black/10 selection:text-black">
           {/* Top Navigation */}
           <Navbar />
 

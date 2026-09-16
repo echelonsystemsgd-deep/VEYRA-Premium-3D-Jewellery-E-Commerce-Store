@@ -56,11 +56,11 @@ export const PrivateViewingModal: React.FC = () => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 15 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-lg bg-[#ffffff] border border-[#e5e5e7] p-8 sm:p-10 shadow-2xl rounded-sm z-10 text-[#121214]"
+          className="relative w-full max-w-lg bg-veyra-surface border border-veyra-border p-8 sm:p-10 shadow-2xl rounded-sm z-10 text-veyra-text"
         >
           <button
             onClick={handleClose}
-            className="absolute top-6 right-6 text-[#777] hover:text-black transition-colors"
+            className="absolute top-6 right-6 text-veyra-muted hover:text-veyra-text transition-colors"
             aria-label="Close"
           >
             <X className="w-5 h-5" />
@@ -68,11 +68,11 @@ export const PrivateViewingModal: React.FC = () => {
 
           {submitted ? (
             <div className="text-center py-8">
-              <CheckCircle2 className="w-12 h-12 text-[#967538] mx-auto mb-4" />
-              <h3 className="font-editorial text-3xl text-[#121214]">
+              <CheckCircle2 className="w-12 h-12 text-veyra-brass mx-auto mb-4" />
+              <h3 className="font-editorial text-3xl text-veyra-text">
                 CONSULTATION SECURED
               </h3>
-              <p className="text-xs text-[#666] tracking-[0.04em] mt-3 leading-relaxed max-w-md mx-auto">
+              <p className="text-xs text-veyra-muted tracking-[0.04em] mt-3 leading-relaxed max-w-md mx-auto">
                 Our Private Salon Concierge will contact you shortly to coordinate an exclusive examination of your selected piece with physical metallurgy samples.
               </p>
               <button
@@ -84,21 +84,21 @@ export const PrivateViewingModal: React.FC = () => {
             </div>
           ) : (
             <div>
-              <div className="flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-[#967538] mb-2 font-medium">
+              <div className="flex items-center gap-2 text-[0.625rem] tracking-[0.3em] uppercase text-veyra-brass mb-2 font-medium">
                 <Sparkles className="w-3 h-3" />
                 <span>Private Salon Appointment</span>
               </div>
 
-              <h3 className="font-editorial text-3xl sm:text-4xl text-[#121214] font-normal tracking-wide">
+              <h3 className="font-editorial text-3xl sm:text-4xl text-veyra-text font-normal tracking-wide">
                 Private Viewing
               </h3>
-              <p className="text-xs text-[#666] tracking-[0.04em] mt-2">
+              <p className="text-xs text-veyra-muted tracking-[0.04em] mt-2">
                 Request a dedicated examination session for high-ticket permanent commissions and bespoke signet seals.
               </p>
 
               <form onSubmit={handleSubmit} className="mt-8 space-y-4">
                 <div>
-                  <label className="block text-[10px] tracking-[0.2em] uppercase text-[#777] mb-1 font-mono">
+                  <label className="block text-[0.625rem] tracking-[0.2em] uppercase text-veyra-muted mb-1 font-mono">
                     Full Name
                   </label>
                   <input
@@ -107,12 +107,12 @@ export const PrivateViewingModal: React.FC = () => {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="Lord / Lady / Collector"
-                    className="w-full bg-[#f8f8fa] border border-[#e5e5e7] px-4 py-2.5 text-xs text-[#121214] focus:border-black focus:outline-none rounded-sm"
+                    className="w-full bg-veyra-bg border border-veyra-border px-4 py-2.5 text-xs text-veyra-text focus:border-veyra-text focus:outline-none rounded-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[10px] tracking-[0.2em] uppercase text-[#777] mb-1 font-mono">
+                  <label className="block text-[0.625rem] tracking-[0.2em] uppercase text-veyra-muted mb-1 font-mono">
                     Direct Email / Telephone
                   </label>
                   <input
@@ -121,18 +121,18 @@ export const PrivateViewingModal: React.FC = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="concierge@collector.com"
-                    className="w-full bg-[#f8f8fa] border border-[#e5e5e7] px-4 py-2.5 text-xs text-[#121214] focus:border-black focus:outline-none rounded-sm"
+                    className="w-full bg-veyra-bg border border-veyra-border px-4 py-2.5 text-xs text-veyra-text focus:border-veyra-text focus:outline-none rounded-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[10px] tracking-[0.2em] uppercase text-[#777] mb-1 font-mono">
+                  <label className="block text-[0.625rem] tracking-[0.2em] uppercase text-veyra-muted mb-1 font-mono">
                     Piece for Inspection
                   </label>
                   <select
                     value={selectedPieceId}
                     onChange={(e) => setSelectedPieceId(e.target.value)}
-                    className="w-full bg-[#f8f8fa] border border-[#e5e5e7] px-4 py-2.5 text-xs text-[#121214] focus:border-black focus:outline-none rounded-sm"
+                    className="w-full bg-veyra-bg border border-veyra-border px-4 py-2.5 text-xs text-veyra-text focus:border-veyra-text focus:outline-none rounded-sm"
                   >
                     {PRODUCTS.map(p => (
                       <option key={p.id} value={p.id}>
@@ -143,7 +143,7 @@ export const PrivateViewingModal: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-[10px] tracking-[0.2em] uppercase text-[#777] mb-1 font-mono">
+                  <label className="block text-[0.625rem] tracking-[0.2em] uppercase text-veyra-muted mb-1 font-mono">
                     Salon Location
                   </label>
                   <div className="grid grid-cols-3 gap-2">
@@ -156,10 +156,10 @@ export const PrivateViewingModal: React.FC = () => {
                         type="button"
                         key={salon.id}
                         onClick={() => setConsultationType(salon.id as any)}
-                        className={`py-2 px-1 text-center text-[10px] tracking-[0.1em] uppercase border rounded-sm transition-all ${
+                        className={`py-2 px-1 text-center text-[0.625rem] tracking-[0.1em] uppercase border rounded-sm transition-all ${
                           consultationType === salon.id
-                            ? 'border-black bg-black text-white'
-                            : 'border-[#e5e5e7] text-[#666] hover:border-black/40'
+                            ? 'border-veyra-text bg-veyra-text text-white'
+                            : 'border-veyra-border text-veyra-muted hover:border-veyra-text/50'
                         }`}
                       >
                         {salon.label}

@@ -15,9 +15,9 @@ export const ProductGrid: React.FC = () => {
   })
 
   return (
-    <section id="collection" className="relative w-full bg-[#f6f6f8] text-[#121214] border-t border-[#e5e5e7]">
-      {/* 3-Column Architectural Hairline Grid (Exact Layout from Reference Video 00:04) */}
-      <div className="max-w-7xl mx-auto border-x border-[#e5e5e7]">
+    <section id="collection" className="relative w-full bg-veyra-bg text-veyra-text border-t border-veyra-border">
+      {/* 3-Column Architectural Hairline Grid (Exact Layout from Reference Video) */}
+      <div className="max-w-7xl mx-auto border-x border-veyra-border">
         <div className="grid grid-cols-1 md:grid-cols-3">
           {PRODUCTS.map((product, index) => {
             const currentMat = selectedMaterials[product.id] || product.primaryMaterial
@@ -25,7 +25,6 @@ export const ProductGrid: React.FC = () => {
 
             // Determine border classes for clean 3-col architectural grid lines
             const isRightCol = (index + 1) % 3 === 0
-            const isBottomRow = index >= PRODUCTS.length - (PRODUCTS.length % 3 || 3)
 
             return (
               <motion.div
@@ -37,8 +36,8 @@ export const ProductGrid: React.FC = () => {
                 onMouseEnter={() => setHoveredId(product.id)}
                 onMouseLeave={() => setHoveredId(null)}
                 onClick={() => setActiveModalProduct(product)}
-                className={`relative group bg-[#f6f6f8] hover:bg-white transition-colors duration-500 cursor-pointer flex flex-col items-center justify-between p-8 sm:p-12 min-h-[480px] border-b border-[#e5e5e7] ${
-                  !isRightCol ? 'md:border-r border-[#e5e5e7]' : ''
+                className={`relative group bg-veyra-bg hover:bg-veyra-surface transition-colors duration-500 cursor-pointer flex flex-col items-center justify-between p-8 sm:p-12 min-h-[30rem] border-b border-veyra-border ${
+                  !isRightCol ? 'md:border-r border-veyra-border' : ''
                 }`}
               >
                 {/* High-Resolution Editorial Product Photography */}
@@ -49,21 +48,21 @@ export const ProductGrid: React.FC = () => {
                     loading="lazy"
                     className="w-full h-full object-contain filter contrast-[1.04] brightness-[0.98] group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  {/* Subtle gallery shadow beneath ring */}
-                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-3 bg-black/10 blur-md rounded-full pointer-events-none" />
+                  {/* Subtle gallery contact shadow */}
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-3 bg-black/5 blur-md rounded-full pointer-events-none" />
                 </div>
 
                 {/* Ring Metadata (Matching Video: Name & Price centered below) */}
                 <div className="text-center w-full pt-4">
-                  <h3 className="font-editorial text-xl sm:text-2xl text-[#121214] font-normal tracking-wide group-hover:text-black transition-colors">
+                  <h3 className="font-editorial text-xl sm:text-2xl text-veyra-text font-normal tracking-wide group-hover:text-black transition-colors">
                     {product.name}
                   </h3>
-                  <div className="text-[11px] tracking-[0.2em] font-mono text-[#77777b] mt-1.5 uppercase">
+                  <div className="text-[0.6875rem] tracking-[0.2em] font-mono text-veyra-muted mt-2 uppercase">
                     ${product.price} USD
                   </div>
 
                   {/* Material Dots (Subtle) */}
-                  <div className="flex items-center justify-center gap-1.5 mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex items-center justify-center gap-2 mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {product.availableMaterials.map((mat) => {
                       const isChosen = currentMat === mat
                       return (
@@ -73,8 +72,8 @@ export const ProductGrid: React.FC = () => {
                             e.stopPropagation()
                             setSelectedMaterials(prev => ({ ...prev, [product.id]: mat }))
                           }}
-                          className={`w-2 h-2 rounded-full transition-transform ${
-                            isChosen ? 'scale-125 ring-1 ring-black' : 'opacity-40 hover:opacity-100'
+                          className={`w-2.5 h-2.5 rounded-full transition-transform ${
+                            isChosen ? 'scale-125 ring-1 ring-veyra-text' : 'opacity-40 hover:opacity-100'
                           }`}
                           style={{ backgroundColor: MATERIAL_CONFIG[mat].accentColor }}
                           title={MATERIAL_CONFIG[mat].name}

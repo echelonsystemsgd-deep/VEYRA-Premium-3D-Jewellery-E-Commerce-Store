@@ -49,62 +49,61 @@ export const ProductModal: React.FC = () => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 15 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-5xl bg-[#ffffff] border border-[#e5e5e7] shadow-2xl rounded-sm overflow-hidden z-10 flex flex-col lg:flex-row min-h-[600px] max-h-[92vh]"
+          className="relative w-full max-w-5xl bg-veyra-surface border border-veyra-border shadow-2xl rounded-sm overflow-hidden z-10 flex flex-col lg:flex-row min-h-[600px] max-h-[92vh]"
         >
           {/* Close button */}
           <button
             onClick={() => setActiveModalProduct(null)}
-            className="absolute top-6 right-6 z-30 p-2 rounded-full hover:bg-black/5 text-[#666] hover:text-black transition-all duration-300"
+            className="absolute top-6 right-6 z-30 p-2 rounded-full hover:bg-black/5 text-veyra-muted hover:text-veyra-text transition-all duration-300"
             aria-label="Close Inspection"
           >
             <X className="w-5 h-5" />
           </button>
 
           {/* Left Column: 360° Studio Canvas */}
-          <div className="relative w-full lg:w-3/5 h-[360px] lg:h-auto bg-gradient-to-b from-[#f8f8fa] to-[#efeff2] border-b lg:border-b-0 lg:border-r border-[#e5e5e7] flex items-center justify-center overflow-hidden">
+          <div className="relative w-full lg:w-3/5 h-[360px] lg:h-auto bg-gradient-to-b from-veyra-bg to-veyra-subtle border-b lg:border-b-0 lg:border-r border-veyra-border flex items-center justify-center overflow-hidden">
             <ProductDetailViewer
               modelType={activeModalProduct.modelType}
               materialType={selectedMaterial}
             />
 
-            {/* Badge */}
-            <div className="absolute top-6 left-6 flex items-center gap-2 text-[9px] tracking-[0.25em] uppercase text-[#777] bg-white/70 px-3 py-1.5 backdrop-blur-md rounded-full border border-black/5 pointer-events-none">
-              <RefreshCw className="w-3 h-3 text-[#967538] animate-spin" style={{ animationDuration: '9s' }} />
-              <span>Interactive 360° Studio</span>
+            {/* Architectural Mode Indicator */}
+            <div className="absolute top-6 left-6 font-mono text-[0.625rem] tracking-[0.25em] uppercase text-veyra-muted pointer-events-none">
+              [ 360° SILHOUETTE VIEW ]
             </div>
           </div>
 
           {/* Right Column: Spec & Selection */}
-          <div className="w-full lg:w-2/5 p-8 lg:p-10 flex flex-col justify-between overflow-y-auto bg-white">
+          <div className="w-full lg:w-2/5 p-8 lg:p-10 flex flex-col justify-between overflow-y-auto bg-veyra-surface">
             <div>
-              <div className="flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-[#967538] mb-2 font-medium">
+              <div className="flex items-center gap-2 text-[0.625rem] tracking-[0.3em] uppercase text-veyra-brass mb-2 font-medium">
                 <span>The Permanent Vault</span>
                 <span>·</span>
                 <span>{activeModalProduct.weight}</span>
               </div>
 
-              <h2 className="font-editorial text-3xl lg:text-4xl text-[#121214] font-normal tracking-wide">
+              <h2 className="font-editorial text-3xl lg:text-4xl text-veyra-text font-normal tracking-wide">
                 {activeModalProduct.name}
               </h2>
-              <p className="text-xs text-[#6e6e72] tracking-[0.04em] mt-2 leading-relaxed">
+              <p className="text-xs text-veyra-muted tracking-[0.04em] mt-2 leading-relaxed">
                 {activeModalProduct.subtitle}
               </p>
 
               {/* Price */}
-              <div className="mt-6 pb-6 border-b border-[#e5e5e7] flex items-baseline gap-3">
-                <span className="font-editorial text-3xl text-[#121214]">
+              <div className="mt-6 pb-6 border-b border-veyra-border flex items-baseline gap-3">
+                <span className="font-editorial text-3xl text-veyra-text">
                   ${activeModalProduct.price}
                 </span>
-                <span className="text-[10px] tracking-[0.2em] font-mono text-[#777] uppercase">
+                <span className="text-[0.625rem] tracking-[0.2em] font-mono text-veyra-faint uppercase">
                   USD · Insured Courier Delivery
                 </span>
               </div>
 
               {/* Material Switcher */}
               <div className="mt-6">
-                <div className="flex items-center justify-between text-[11px] tracking-[0.2em] uppercase mb-3">
-                  <span className="text-[#666]">Material</span>
-                  <span className="text-[#121214] font-medium">{matConfig.name}</span>
+                <div className="flex items-center justify-between text-[0.6875rem] tracking-[0.2em] uppercase mb-3">
+                  <span className="text-veyra-muted">Material</span>
+                  <span className="text-veyra-text font-medium">{matConfig.name}</span>
                 </div>
 
                 <div className="grid grid-cols-3 gap-2">
@@ -117,31 +116,31 @@ export const ProductModal: React.FC = () => {
                         onClick={() => setSelectedMaterial(mat)}
                         className={`p-2.5 text-left rounded-sm border transition-all duration-300 flex flex-col gap-1.5 ${
                           isSelected
-                            ? 'border-black bg-black/[0.04]'
-                            : 'border-[#e5e5e7] hover:border-black/30'
+                            ? 'border-veyra-text bg-black/[0.04]'
+                            : 'border-veyra-border hover:border-veyra-text/40'
                         }`}
                       >
                         <span
                           className="w-3 h-3 rounded-full"
                           style={{ backgroundColor: itemConfig.accentColor }}
                         />
-                        <span className="text-[9px] tracking-[0.14em] uppercase text-[#121214] font-medium truncate">
+                        <span className="text-[0.625rem] tracking-[0.14em] uppercase text-veyra-text font-medium truncate">
                           {itemConfig.name.split(' ')[0]}
                         </span>
                       </button>
                     )
                   })}
                 </div>
-                <p className="text-[11px] text-[#66666a] mt-2.5 leading-relaxed">
+                <p className="text-[0.6875rem] text-veyra-muted mt-2.5 leading-relaxed">
                   {matConfig.description}
                 </p>
               </div>
 
               {/* Size Selector */}
               <div className="mt-6">
-                <div className="flex items-center justify-between text-[11px] tracking-[0.2em] uppercase mb-2.5">
-                  <span className="text-[#666]">Select US Size</span>
-                  <span className="text-[#888] text-[10px]">Standard Comfort Bore</span>
+                <div className="flex items-center justify-between text-[0.6875rem] tracking-[0.2em] uppercase mb-2.5">
+                  <span className="text-veyra-muted">Select US Size</span>
+                  <span className="text-veyra-faint text-[0.625rem]">Standard Comfort Bore</span>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
@@ -153,8 +152,8 @@ export const ProductModal: React.FC = () => {
                         onClick={() => setSelectedSize(size)}
                         className={`w-10 h-10 flex items-center justify-center text-xs tracking-wider border rounded-sm transition-all ${
                           isSelected
-                            ? 'border-black bg-black text-white font-medium'
-                            : 'border-[#e5e5e7] text-[#555] hover:border-black/50 hover:text-black'
+                            ? 'border-veyra-text bg-veyra-text text-white font-medium'
+                            : 'border-veyra-border text-veyra-muted hover:border-veyra-text/50 hover:text-veyra-text'
                         }`}
                       >
                         {size}
@@ -165,10 +164,10 @@ export const ProductModal: React.FC = () => {
               </div>
 
               {/* Craftsmanship Features */}
-              <div className="mt-6 pt-5 border-t border-[#e5e5e7] space-y-2">
+              <div className="mt-6 pt-5 border-t border-veyra-border space-y-2">
                 {activeModalProduct.details.map((detail, idx) => (
-                  <div key={idx} className="flex items-start gap-2 text-xs text-[#5e5e63] leading-relaxed">
-                    <span className="w-1 h-1 rounded-full bg-[#967538] mt-2 flex-shrink-0" />
+                  <div key={idx} className="flex items-start gap-2 text-xs text-veyra-muted leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-veyra-brass mt-1.5 flex-shrink-0" />
                     <span>{detail}</span>
                   </div>
                 ))}
@@ -176,14 +175,14 @@ export const ProductModal: React.FC = () => {
             </div>
 
             {/* Bottom Actions */}
-            <div className="mt-8 pt-5 border-t border-[#e5e5e7] flex flex-col gap-3">
+            <div className="mt-8 pt-5 border-t border-veyra-border flex flex-col gap-3">
               <button
                 onClick={handleAddToCart}
                 className="btn-gallery-primary w-full"
               >
                 {isAdded ? (
                   <>
-                    <Check className="w-4 h-4 text-emerald-400" />
+                    <Check className="w-4 h-4 text-emerald-500" />
                     <span>Added to Bag</span>
                   </>
                 ) : (
@@ -196,15 +195,15 @@ export const ProductModal: React.FC = () => {
                   setActiveModalProduct(null)
                   openPrivateViewing(activeModalProduct)
                 }}
-                className="btn-gallery-outline w-full text-[10px]"
+                className="btn-gallery-outline w-full text-[0.625rem]"
               >
-                <Sparkles className="w-3 h-3 text-[#967538]" />
+                <Sparkles className="w-3 h-3 text-veyra-brass" />
                 <span>Request Private Viewing Appointment</span>
               </button>
 
-              <div className="flex items-center justify-center gap-5 text-[9px] tracking-[0.2em] uppercase text-[#888] pt-2">
+              <div className="flex items-center justify-center gap-5 text-[0.5625rem] tracking-[0.2em] uppercase text-veyra-faint pt-2">
                 <span className="flex items-center gap-1">
-                  <Shield className="w-3 h-3 text-[#967538]" />
+                  <Shield className="w-3 h-3 text-veyra-brass" />
                   Lifetime Warranty
                 </span>
                 <span>·</span>

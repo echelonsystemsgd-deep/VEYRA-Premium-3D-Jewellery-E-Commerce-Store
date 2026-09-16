@@ -53,7 +53,7 @@ export const ProductDetailViewer: React.FC<ProductDetailViewerProps> = ({
       </Canvas>
 
       {/* Subtle bottom indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 pointer-events-none text-[10px] tracking-[0.25em] uppercase text-[#666563]">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 pointer-events-none text-[0.625rem] tracking-[0.25em] uppercase text-veyra-muted font-mono whitespace-nowrap">
         Drag to inspect 360° · Scroll to magnify
       </div>
     </div>
