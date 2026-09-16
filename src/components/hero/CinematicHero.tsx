@@ -205,7 +205,13 @@ export const CinematicHero: React.FC = () => {
 
   const scrollToCollection = () => {
     const el = document.getElementById('collection')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    if (!el) return
+    const lenis = (window as any).__lenisInstance
+    if (lenis) {
+      lenis.scrollTo('#collection', { offset: -20, duration: 1.2 })
+    } else {
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   const handleInspectProduct = (productId: string) => {
@@ -223,101 +229,106 @@ export const CinematicHero: React.FC = () => {
       ref={trackRef}
       id="cinematic-hero"
       aria-label="VEYRA Cinematic Scroll Hero"
-      className="relative w-full h-[220vh] bg-veyra-bg text-veyra-text"
+      className="relative w-full h-[190vh] sm:h-[220vh] bg-veyra-bg text-veyra-text"
     >
       {/* Sticky Pinned Viewport Container */}
-      <div className="sticky top-0 h-screen w-full flex items-center overflow-hidden bg-veyra-bg z-10">
+      <div className="sticky top-0 h-[100dvh] w-full flex items-center overflow-hidden bg-veyra-bg z-10">
         
         {/* Main Content Layout */}
-        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-10 sm:py-16 flex flex-col justify-between h-full max-h-[92vh]">
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-16 pb-3 sm:pt-20 sm:pb-6 flex flex-col justify-between h-full max-h-[100dvh]">
           
           {/* Top Atelier Bar */}
-          <div className="flex items-center justify-between text-[0.625rem] sm:text-[0.6875rem] tracking-[0.28em] uppercase text-veyra-muted border-b border-veyra-border pb-3">
-            <span className="font-medium">PERMANENT METALLURGY · ATELIER 2026</span>
-            <span className="font-mono text-veyra-faint hidden sm:inline-block">
-              FRAME SCROLL SEQUENCE [ 01 / {TOTAL_FRAMES} ]
+          <div className="flex items-center justify-between text-[0.5625rem] sm:text-[0.6875rem] tracking-[0.24em] sm:tracking-[0.28em] uppercase text-veyra-muted border-b border-veyra-border pb-2 sm:pb-3 shrink-0">
+            <span className="font-medium truncate">PERMANENT METALLURGY · ATELIER 2026</span>
+            <span className="font-mono text-veyra-faint text-[0.5625rem] sm:text-xs">
+              FRAME [ {String(currentFrame + 1).padStart(2, '0')} / {TOTAL_FRAMES} ]
             </span>
           </div>
 
-          {/* Central Split Grid: Serif Typography Left, 1:1 Square Canvas Right */}
-          <div className="my-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center py-4 sm:py-6">
+          {/* Central Split Grid: On Mobile, Headline -> Canvas -> Alloy/Buttons. On Desktop: 2 Columns */}
+          <div className="flex-1 flex flex-col lg:grid lg:grid-cols-12 lg:gap-10 xl:gap-14 items-center justify-center py-2 sm:py-4 min-h-0">
             
-            {/* Left Column: Refined Serif Typography & Controls */}
-            <div className="lg:col-span-6 z-20 flex flex-col justify-center text-left">
-              <div className="mb-3">
-                <Badge variant="hallmark">
-                  Archival Release · Forged in Silence
-                </Badge>
+            {/* Left Column Wrapper: on mobile it displays as contents so children are reordered cleanly */}
+            <div className="contents lg:flex lg:flex-col lg:justify-center lg:col-span-6 z-20 text-left">
+              
+              {/* Title Block (Order 1 on mobile) */}
+              <div className="order-1 text-center lg:text-left flex flex-col items-center lg:items-start shrink-0">
+                <div className="mb-1.5 sm:mb-2.5">
+                  <Badge variant="hallmark" className="text-[0.5625rem] sm:text-xs py-0.5 px-2">
+                    Archival Release · Forged in Silence
+                  </Badge>
+                </div>
+
+                <h1 className="font-editorial text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] tracking-[0.02em] text-veyra-text font-normal leading-[0.95]">
+                  JEWELLERY,<br className="hidden xs:inline" />{' '}
+                  <span className="italic font-light text-veyra-text/90">REIMAGINED</span>
+                </h1>
+
+                <p className="hidden sm:block text-xs sm:text-sm text-veyra-muted tracking-[0.03em] mt-2 lg:mt-4 max-w-lg leading-relaxed font-normal">
+                  Solid cast, unplated jewelry engineered with intentional mass. Hand-finished to patina with touch, friction, and time.
+                </p>
               </div>
 
-              <h1 className="font-editorial text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-[0.02em] text-veyra-text font-normal leading-[0.95]">
-                JEWELLERY,<br />
-                <span className="italic font-light text-veyra-text/90">REIMAGINED</span>
-              </h1>
-
-              <p className="text-sm sm:text-base text-veyra-muted tracking-[0.04em] mt-5 max-w-lg leading-relaxed font-normal">
-                Solid cast, unplated jewelry engineered with intentional mass. Hand-finished to patina with touch, friction, and time.
-              </p>
-
-              {/* Living Metallurgy Selector (Shadcn Tabs) */}
-              <div className="mt-6 p-4 rounded-xs bg-veyra-surface border border-veyra-border max-w-md shadow-xs">
-                <div className="flex items-center justify-between text-[0.625rem] tracking-[0.2em] uppercase text-veyra-muted mb-3 font-mono">
+              {/* Living Metallurgy Selector (Order 3 on mobile) */}
+              <div className="order-3 w-full max-w-md mx-auto lg:mx-0 mt-1.5 sm:mt-4 lg:mt-6 p-2 sm:p-3.5 rounded-xs bg-veyra-surface border border-veyra-border shadow-xs shrink-0">
+                <div className="flex items-center justify-between text-[0.5625rem] sm:text-[0.625rem] tracking-[0.2em] uppercase text-veyra-muted mb-1.5 sm:mb-2.5 font-mono">
                   <span className="flex items-center gap-1.5 font-medium text-veyra-text">
-                    <Layers className="w-3.5 h-3.5 text-veyra-brass" />
+                    <Layers className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-veyra-brass" />
                     Alloy Selector
                   </span>
-                  <span className="text-veyra-brass font-medium">{currentAlloyConfig.name}</span>
+                  <span className="text-veyra-brass font-medium text-[0.5625rem] sm:text-xs">{currentAlloyConfig.name}</span>
                 </div>
 
                 <Tabs value={selectedAlloy} onValueChange={(val) => setSelectedAlloy(val as MaterialType)}>
-                  <TabsList className="grid grid-cols-3 w-full h-auto p-1 gap-1 bg-veyra-subtle border border-veyra-border/60">
-                    <TabsTrigger value="oxidised-silver" className="flex items-center gap-1.5 py-2">
-                      <span className="w-2 h-2 rounded-full bg-[#c5c8cc]" />
+                  <TabsList className="grid grid-cols-3 w-full h-auto p-0.5 sm:p-1 gap-1 bg-veyra-subtle border border-veyra-border/60">
+                    <TabsTrigger value="oxidised-silver" className="flex items-center justify-center gap-1 sm:gap-1.5 py-1 sm:py-1.5 text-[0.625rem] sm:text-xs cursor-pointer">
+                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#c5c8cc] shrink-0" />
                       <span className="truncate">Silver</span>
                     </TabsTrigger>
-                    <TabsTrigger value="blackened-bronze" className="flex items-center gap-1.5 py-2">
-                      <span className="w-2 h-2 rounded-full bg-[#8a6e55]" />
+                    <TabsTrigger value="blackened-bronze" className="flex items-center justify-center gap-1 sm:gap-1.5 py-1 sm:py-1.5 text-[0.625rem] sm:text-xs cursor-pointer">
+                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#8a6e55] shrink-0" />
                       <span className="truncate">Bronze</span>
                     </TabsTrigger>
-                    <TabsTrigger value="raw-brass" className="flex items-center gap-1.5 py-2">
-                      <span className="w-2 h-2 rounded-full bg-[#d6b36e]" />
+                    <TabsTrigger value="raw-brass" className="flex items-center justify-center gap-1 sm:gap-1.5 py-1 sm:py-1.5 text-[0.625rem] sm:text-xs cursor-pointer">
+                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#d6b36e] shrink-0" />
                       <span className="truncate">Brass</span>
                     </TabsTrigger>
                   </TabsList>
                 </Tabs>
 
-                <p className="text-xs text-veyra-muted mt-3 leading-relaxed">
+                <p className="text-[0.5625rem] sm:text-xs text-veyra-muted mt-1.5 sm:mt-2.5 leading-tight sm:leading-relaxed line-clamp-1 sm:line-clamp-none">
                   {currentAlloyConfig.description}
                 </p>
               </div>
 
-              {/* Quick Actions */}
-              <div className="mt-6 flex flex-wrap items-center gap-4">
+              {/* Quick Actions (Order 4 on mobile) */}
+              <div className="order-4 mt-2 sm:mt-4 lg:mt-6 w-full max-w-md mx-auto lg:mx-0 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3 shrink-0">
                 <Button
                   variant="default"
-                  size="lg"
+                  size="sm"
                   onClick={scrollToCollection}
-                  className="group"
+                  className="group py-2 sm:py-2.5 px-2 text-[0.625rem] sm:text-xs tracking-[0.14em] uppercase font-mono h-8 sm:h-10 cursor-pointer"
                   aria-label="Scroll to collection"
                 >
-                  <span>Explore The Archive</span>
-                  <ArrowDown className="w-3.5 h-3.5 ml-2 group-hover:translate-y-0.5 transition-transform" />
+                  <span className="truncate">Explore Archive</span>
+                  <ArrowDown className="w-3 h-3 ml-1 sm:ml-1.5 group-hover:translate-y-0.5 transition-transform shrink-0" />
                 </Button>
 
                 <Button
                   variant="outline"
-                  size="lg"
+                  size="sm"
                   onClick={() => handleInspectProduct('solitary-cabochon')}
+                  className="py-2 sm:py-2.5 px-2 text-[0.625rem] sm:text-xs tracking-[0.14em] uppercase font-mono h-8 sm:h-10 cursor-pointer"
                 >
-                  <Eye className="w-3.5 h-3.5 mr-2 text-veyra-brass" />
-                  <span>Inspect Featured Piece</span>
+                  <Eye className="w-3 h-3 mr-1 sm:mr-1.5 text-veyra-brass shrink-0" />
+                  <span className="truncate">Inspect Piece</span>
                 </Button>
               </div>
             </div>
 
-            {/* Right Column: Defined 1:1 Square Canvas Panel */}
-            <div className="lg:col-span-6 flex items-center justify-center">
-              <div className="relative w-full max-w-[28rem] sm:max-w-[32rem] lg:max-w-[34rem] aspect-square rounded-sm border border-veyra-border bg-veyra-surface p-2 sm:p-3 shadow-xl overflow-hidden group">
+            {/* Right Column / Centerpiece: Defined Square Canvas Panel (Order 2 on mobile) */}
+            <div className="order-2 lg:order-2 lg:col-span-6 flex items-center justify-center w-full my-auto py-1 sm:py-2 min-h-0">
+              <div className="relative w-full max-w-[210px] xs:max-w-[240px] sm:max-w-[290px] md:max-w-[340px] lg:max-w-[32rem] aspect-square rounded-sm border border-veyra-border bg-veyra-surface p-1.5 sm:p-2.5 shadow-xl group shrink-0">
                 
                 {/* Hairline inner boundary */}
                 <div className="relative w-full h-full rounded-xs overflow-hidden bg-stone-100 flex items-center justify-center">
@@ -332,8 +343,8 @@ export const CinematicHero: React.FC = () => {
                   />
 
                   {/* Frame Progress Pill */}
-                  <div className="absolute top-4 left-4 z-20 pointer-events-none">
-                    <Badge variant="outline" className="bg-white/85 backdrop-blur-xs text-[0.5625rem] font-mono border-veyra-border text-veyra-text shadow-xs">
+                  <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-20 pointer-events-none">
+                    <Badge variant="outline" className="bg-white/90 backdrop-blur-xs text-[0.5rem] sm:text-[0.5625rem] font-mono border-veyra-border text-veyra-text shadow-xs py-0.5 px-1.5">
                       Frame {String(currentFrame + 1).padStart(2, '0')} / {TOTAL_FRAMES}
                     </Badge>
                   </div>
@@ -341,6 +352,7 @@ export const CinematicHero: React.FC = () => {
                   {/* Interactive Ring Hotspots Floating Over Hand */}
                   {HOTSPOTS.map((spot) => {
                     const isActive = activeHotspot?.id === spot.id
+                    const isLower = spot.topPercent > 55
                     return (
                       <div
                         key={spot.id}
@@ -357,34 +369,36 @@ export const CinematicHero: React.FC = () => {
                           aria-label={`Inspect ${spot.label}`}
                         >
                           <span
-                            className="absolute w-6 h-6 rounded-full animate-ping opacity-40"
+                            className="absolute w-5 h-5 sm:w-6 sm:h-6 rounded-full animate-ping opacity-40"
                             style={{ backgroundColor: spot.accentColor }}
                           />
                           <span
-                            className="relative w-3.5 h-3.5 rounded-full border-2 border-white shadow-md transition-transform duration-300 group-hover:scale-125"
+                            className="relative w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full border-2 border-white shadow-md transition-transform duration-300 group-hover:scale-125"
                             style={{ backgroundColor: spot.accentColor }}
                           />
                         </button>
 
                         {/* Popover Callout */}
                         {isActive && (
-                          <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-56 bg-veyra-surface/98 backdrop-blur-md border border-veyra-border p-3.5 rounded-xs shadow-xl z-40 text-left animate-in fade-in-50 zoom-in-95 duration-200">
-                            <div className="flex items-center justify-between pb-1.5 border-b border-veyra-border mb-2">
-                              <span className="font-editorial text-sm text-veyra-text font-normal leading-none">
+                          <div className={`absolute left-1/2 -translate-x-1/2 ${
+                            isLower ? 'bottom-full mb-2' : 'top-full mt-2'
+                          } w-44 sm:w-56 bg-veyra-surface/98 backdrop-blur-md border border-veyra-border p-2.5 sm:p-3.5 rounded-xs shadow-xl z-40 text-left animate-in fade-in-50 zoom-in-95 duration-200`}>
+                            <div className="flex items-center justify-between pb-1 sm:pb-1.5 border-b border-veyra-border mb-1 sm:mb-2">
+                              <span className="font-editorial text-xs sm:text-sm text-veyra-text font-normal leading-none truncate">
                                 {spot.label}
                               </span>
                               <span
-                                className="w-2 h-2 rounded-full"
+                                className="w-2 h-2 rounded-full shrink-0 ml-1"
                                 style={{ backgroundColor: spot.accentColor }}
                               />
                             </div>
-                            <div className="text-[0.625rem] text-veyra-muted font-mono leading-tight space-y-0.5">
+                            <div className="text-[0.5625rem] sm:text-[0.625rem] text-veyra-muted font-mono leading-tight space-y-0.5">
                               <div>{spot.metal}</div>
                               <div className="text-veyra-faint">{spot.weight}</div>
                             </div>
                             <button
                               onClick={() => handleInspectProduct(spot.productId)}
-                              className="mt-2.5 w-full py-1 text-center bg-veyra-text text-white hover:bg-black rounded-xs text-[0.5625rem] tracking-[0.16em] uppercase font-mono transition-colors"
+                              className="mt-2 sm:mt-2.5 w-full py-1 text-center bg-veyra-text text-white hover:bg-black rounded-xs text-[0.5rem] sm:text-[0.5625rem] tracking-[0.16em] uppercase font-mono transition-colors cursor-pointer"
                             >
                               Inspect in 3D ↗
                             </button>
@@ -400,16 +414,16 @@ export const CinematicHero: React.FC = () => {
           </div>
 
           {/* Bottom Left Discover Scroll-Cue */}
-          <div className="flex items-center justify-between pt-4 border-t border-veyra-border text-[0.625rem] tracking-[0.25em] uppercase font-mono text-veyra-muted">
-            <div className="flex items-center gap-2.5">
-              <ArrowDown className="w-3.5 h-3.5 animate-bounce text-veyra-brass stroke-[1.5]" />
+          <div className="flex items-center justify-between pt-2.5 sm:pt-4 border-t border-veyra-border text-[0.5625rem] sm:text-[0.625rem] tracking-[0.2em] sm:tracking-[0.25em] uppercase font-mono text-veyra-muted shrink-0">
+            <div className="flex items-center gap-2 sm:gap-2.5">
+              <ArrowDown className="w-3 h-3 sm:w-3.5 sm:h-3.5 animate-bounce text-veyra-brass stroke-[1.5]" />
               <span className="font-medium text-veyra-text">Discover</span>
-              <span className="text-veyra-faint">[ Scroll to scrub footage ]</span>
+              <span className="text-veyra-faint hidden xs:inline">[ Scroll to scrub ]</span>
             </div>
 
-            <div className="hidden sm:flex items-center gap-3">
-              <span className="text-veyra-faint">Scrub Progress:</span>
-              <div className="w-24 h-1 bg-veyra-border rounded-full overflow-hidden">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <span className="text-veyra-faint hidden sm:inline">Scrub Progress:</span>
+              <div className="w-16 sm:w-24 h-1 bg-veyra-border rounded-full overflow-hidden">
                 <div
                   className="h-full bg-veyra-text transition-all duration-75"
                   style={{ width: `${Math.round(scrollProgress * 100)}%` }}
@@ -425,3 +439,4 @@ export const CinematicHero: React.FC = () => {
     </section>
   )
 }
+

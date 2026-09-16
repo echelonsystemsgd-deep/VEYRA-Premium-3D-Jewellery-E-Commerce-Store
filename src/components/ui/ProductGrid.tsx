@@ -16,17 +16,17 @@ export const ProductGrid: React.FC = () => {
   })
 
   return (
-    <section id="collection" className="relative w-full bg-veyra-bg text-veyra-text border-t border-veyra-border">
+    <section id="collection" className="relative w-full bg-veyra-bg text-veyra-text border-t border-veyra-border z-20">
       
       {/* Section Header */}
-      <div className="max-w-7xl mx-auto border-x border-veyra-border bg-veyra-surface px-6 md:px-12 py-10 border-b border-veyra-border flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div className="max-w-7xl mx-auto border-x border-veyra-border bg-veyra-surface px-4 sm:px-6 md:px-12 py-8 sm:py-10 border-b border-veyra-border flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <div className="mb-2">
             <Badge variant="hallmark">
               Archival Release · 01
             </Badge>
           </div>
-          <h2 className="font-editorial text-3xl sm:text-4xl text-veyra-text font-normal tracking-wide">
+          <h2 className="font-editorial text-2xl sm:text-3xl md:text-4xl text-veyra-text font-normal tracking-wide">
             The Permanent Collection
           </h2>
         </div>
@@ -55,12 +55,12 @@ export const ProductGrid: React.FC = () => {
                 onMouseEnter={() => setHoveredId(product.id)}
                 onMouseLeave={() => setHoveredId(null)}
                 onClick={() => setActiveModalProduct(product)}
-                className={`relative group bg-veyra-surface hover:bg-veyra-subtle/40 transition-colors duration-400 cursor-pointer flex flex-col items-center justify-between p-8 sm:p-12 min-h-[30rem] border-b border-veyra-border ${
+                className={`relative group bg-veyra-surface hover:bg-veyra-subtle/40 transition-colors duration-400 cursor-pointer flex flex-col items-center justify-between p-6 sm:p-8 md:p-12 min-h-[25rem] sm:min-h-[30rem] border-b border-veyra-border ${
                   !isRightCol ? 'md:border-r border-veyra-border' : ''
                 }`}
               >
                 {/* High-Resolution Editorial Product Photography */}
-                <div className="relative w-full h-72 sm:h-80 flex items-center justify-center overflow-hidden p-6">
+                <div className="relative w-full h-64 sm:h-72 md:h-80 flex items-center justify-center overflow-hidden p-4 sm:p-6">
                   <img
                     src={product.image}
                     alt={`${product.name} — ${product.subtitle}`}
@@ -68,20 +68,20 @@ export const ProductGrid: React.FC = () => {
                     className="w-full h-full object-contain filter contrast-[1.04] brightness-[0.99] group-hover:scale-105 transition-transform duration-600 ease-out"
                   />
                   {/* Subtle gallery contact shadow */}
-                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-3 bg-black/4 blur-md rounded-full pointer-events-none" />
+                  <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 w-28 sm:w-32 h-3 bg-black/4 blur-md rounded-full pointer-events-none" />
                 </div>
 
                 {/* Ring Metadata (Matching Video: Name & Price centered below) */}
-                <div className="text-center w-full pt-4">
-                  <h3 className="font-editorial text-xl sm:text-2xl text-veyra-text font-normal tracking-wide group-hover:text-black transition-colors">
+                <div className="text-center w-full pt-3 sm:pt-4">
+                  <h3 className="font-editorial text-lg sm:text-xl md:text-2xl text-veyra-text font-normal tracking-wide group-hover:text-black transition-colors">
                     {product.name}
                   </h3>
-                  <div className="text-[0.6875rem] tracking-[0.2em] font-mono text-veyra-muted mt-2 uppercase">
+                  <div className="text-[0.625rem] sm:text-[0.6875rem] tracking-[0.2em] font-mono text-veyra-muted mt-1.5 sm:mt-2 uppercase">
                     ${product.price} USD
                   </div>
 
                   {/* Material Dots (Subtle) */}
-                  <div className="flex items-center justify-center gap-2 mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex items-center justify-center gap-2 mt-2.5 sm:mt-3 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
                     {product.availableMaterials.map((mat) => {
                       const isChosen = currentMat === mat
                       return (

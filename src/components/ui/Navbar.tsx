@@ -16,34 +16,46 @@ export const Navbar: React.FC = () => {
 
   const scrollTo = (id: string) => {
     setMenuOpen(false)
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    const lenis = (window as any).__lenisInstance
+    if (lenis) {
+      lenis.scrollTo(`#${id}`, { offset: -20, duration: 1.2 })
+    } else {
+      const el = document.getElementById(id)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
     <header
       className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${
         scrolled
-          ? 'bg-veyra-bg/90 backdrop-blur-md border-b border-veyra-border py-4'
-          : 'bg-transparent py-6 md:py-8'
+          ? 'bg-veyra-bg/95 backdrop-blur-md border-b border-veyra-border py-3 md:py-4'
+          : 'bg-transparent py-3 sm:py-4 md:py-7'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between">
         {/* Left: Brand Identity & Emblem (matching the video's top-left circular logo) */}
         <div
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center gap-3 cursor-pointer select-none group"
+          onClick={() => {
+            const lenis = (window as any).__lenisInstance
+            if (lenis) {
+              lenis.scrollTo(0, { duration: 1.2 })
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }
+          }}
+          className="flex items-center gap-2.5 sm:gap-3 cursor-pointer select-none group"
         >
           {/* Custom geometric monogram emblem */}
-          <div className="w-8 h-8 rounded-full border border-veyra-text flex items-center justify-center relative">
-            <span className="font-editorial italic text-base text-veyra-text -mt-0.5">V</span>
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-veyra-text flex items-center justify-center relative">
+            <span className="font-editorial italic text-sm sm:text-base text-veyra-text -mt-0.5">V</span>
             <div className="absolute inset-0 rounded-full border border-black/10 group-hover:scale-110 transition-transform duration-500" />
           </div>
           <div>
-            <span className="font-display text-lg tracking-[0.25em] text-veyra-text font-medium leading-none block">
+            <span className="font-display text-base sm:text-lg tracking-[0.25em] text-veyra-text font-medium leading-none block">
               VEYRA
             </span>
-            <span className="text-[0.4375rem] tracking-[0.3em] uppercase text-veyra-muted block mt-0.5">
+            <span className="text-[0.375rem] sm:text-[0.4375rem] tracking-[0.3em] uppercase text-veyra-muted block mt-0.5">
               Forged in Silence
             </span>
           </div>
@@ -53,30 +65,30 @@ export const Navbar: React.FC = () => {
         <div className="hidden md:flex items-center space-x-12 text-[0.6875rem] tracking-[0.22em] uppercase text-veyra-muted">
           <button
             onClick={() => scrollTo('collection')}
-            className="hover:text-veyra-text transition-colors duration-300"
+            className="hover:text-veyra-text transition-colors duration-300 cursor-pointer"
           >
             Collection
           </button>
           <button
             onClick={() => scrollTo('editorial')}
-            className="hover:text-veyra-text transition-colors duration-300"
+            className="hover:text-veyra-text transition-colors duration-300 cursor-pointer"
           >
             About
           </button>
           <button
-            onClick={() => scrollTo('metallurgy')}
-            className="hover:text-veyra-text transition-colors duration-300"
+            onClick={() => scrollTo('editorial')}
+            className="hover:text-veyra-text transition-colors duration-300 cursor-pointer"
           >
             Metallurgy
           </button>
         </div>
 
         {/* Right: [ BAG: 0 ] and ||| Menu (Matching video) */}
-        <div className="flex items-center space-x-6 text-[0.6875rem] tracking-[0.2em] uppercase">
+        <div className="flex items-center space-x-4 sm:space-x-6 text-[0.6875rem] tracking-[0.2em] uppercase">
           {/* Bag button styled as [ BAG: X ] */}
           <button
             onClick={() => setIsCartOpen(true)}
-            className="text-veyra-text hover:text-veyra-muted transition-colors duration-300 font-mono text-[0.6875rem]"
+            className="text-veyra-text hover:text-veyra-muted transition-colors duration-300 font-mono text-[0.625rem] sm:text-[0.6875rem] cursor-pointer"
             aria-label="View Bag"
           >
             [ BAG: {cartCount} ]
@@ -85,48 +97,54 @@ export const Navbar: React.FC = () => {
           {/* Architectural Menu Trigger: 3 vertical hairline bars ||| */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="flex items-center gap-[3px] p-1.5 hover:opacity-60 transition-opacity"
+            className="flex items-center gap-[3px] p-2 hover:opacity-60 transition-opacity cursor-pointer"
             aria-label="Menu"
           >
-            <span className="w-[1.5px] h-4 bg-veyra-text" />
-            <span className="w-[1.5px] h-4 bg-veyra-text" />
-            <span className="w-[1.5px] h-4 bg-veyra-text" />
+            <span className="w-[1.5px] h-3.5 sm:h-4 bg-veyra-text" />
+            <span className="w-[1.5px] h-3.5 sm:h-4 bg-veyra-text" />
+            <span className="w-[1.5px] h-3.5 sm:h-4 bg-veyra-text" />
           </button>
         </div>
       </div>
 
-      {/* Slide-down Minimal Menu */}
+      {/* Slide-down Minimal Menu & Backdrop */}
       {menuOpen && (
-        <div className="fixed inset-x-0 top-full bg-veyra-surface/98 backdrop-blur-xl border-b border-veyra-border py-10 px-6 flex flex-col items-center space-y-6 text-center text-xs tracking-[0.25em] uppercase text-veyra-text shadow-xl animate-in slide-in-from-top-2 duration-300">
-          <button
-            onClick={() => scrollTo('collection')}
-            className="hover:text-veyra-brass py-2 text-sm font-medium transition-colors"
-          >
-            The Archive
-          </button>
-          <button
-            onClick={() => scrollTo('editorial')}
-            className="hover:text-veyra-brass py-2 text-sm font-medium transition-colors"
-          >
-            Made Without Compromise
-          </button>
-          <button
-            onClick={() => scrollTo('collection')}
-            className="hover:text-veyra-brass py-2 text-sm font-medium transition-colors"
-          >
-            Living Metallurgy
-          </button>
-          <div className="w-12 h-px bg-veyra-border my-2" />
-          <button
-            onClick={() => {
-              setMenuOpen(false)
-              openPrivateViewing()
-            }}
-            className="text-veyra-brass hover:text-veyra-text font-medium py-2 tracking-[0.28em] transition-colors"
-          >
-            Request Private Viewing
-          </button>
-        </div>
+        <>
+          <div
+            className="fixed inset-0 bg-black/25 backdrop-blur-xs z-30"
+            onClick={() => setMenuOpen(false)}
+          />
+          <div className="fixed inset-x-0 top-full bg-veyra-surface/98 backdrop-blur-xl border-b border-veyra-border py-8 px-6 flex flex-col items-center space-y-5 text-center text-xs tracking-[0.25em] uppercase text-veyra-text shadow-xl z-40 animate-in slide-in-from-top-2 duration-300">
+            <button
+              onClick={() => scrollTo('collection')}
+              className="hover:text-veyra-brass py-2 text-sm font-medium transition-colors cursor-pointer"
+            >
+              The Archive
+            </button>
+            <button
+              onClick={() => scrollTo('editorial')}
+              className="hover:text-veyra-brass py-2 text-sm font-medium transition-colors cursor-pointer"
+            >
+              Made Without Compromise
+            </button>
+            <button
+              onClick={() => scrollTo('editorial')}
+              className="hover:text-veyra-brass py-2 text-sm font-medium transition-colors cursor-pointer"
+            >
+              Living Metallurgy
+            </button>
+            <div className="w-12 h-px bg-veyra-border my-1" />
+            <button
+              onClick={() => {
+                setMenuOpen(false)
+                openPrivateViewing()
+              }}
+              className="text-veyra-brass hover:text-veyra-text font-medium py-2 tracking-[0.28em] transition-colors cursor-pointer"
+            >
+              Request Private Viewing
+            </button>
+          </div>
+        </>
       )}
     </header>
   )

@@ -34,7 +34,7 @@ export const ProductModal: React.FC = () => {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-6 lg:p-12 overflow-y-auto">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 lg:p-12 overflow-y-auto">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -51,32 +51,32 @@ export const ProductModal: React.FC = () => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 15 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-5xl bg-veyra-surface border border-veyra-border shadow-2xl rounded-sm overflow-hidden z-10 flex flex-col lg:flex-row min-h-[600px] max-h-[92vh]"
+          className="relative w-full max-w-5xl bg-veyra-surface border border-veyra-border shadow-2xl rounded-sm z-10 flex flex-col lg:flex-row min-h-0 max-h-[94dvh] overflow-y-auto lg:overflow-hidden"
         >
           {/* Close button */}
           <button
             onClick={() => setActiveModalProduct(null)}
-            className="absolute top-6 right-6 z-30 p-2 rounded-full hover:bg-black/5 text-veyra-muted hover:text-veyra-text transition-all duration-300"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 z-30 p-2 rounded-full hover:bg-black/5 text-veyra-muted hover:text-veyra-text transition-all duration-300 cursor-pointer"
             aria-label="Close Inspection"
           >
             <X className="w-5 h-5" />
           </button>
 
           {/* Left Column: 360° Studio Canvas */}
-          <div className="relative w-full lg:w-3/5 h-[360px] lg:h-auto bg-gradient-to-b from-veyra-bg to-veyra-subtle border-b lg:border-b-0 lg:border-r border-veyra-border flex items-center justify-center overflow-hidden">
+          <div className="relative w-full lg:w-3/5 h-[270px] sm:h-[360px] lg:h-auto shrink-0 bg-gradient-to-b from-veyra-bg to-veyra-subtle border-b lg:border-b-0 lg:border-r border-veyra-border flex items-center justify-center overflow-hidden">
             <ProductDetailViewer
               modelType={activeModalProduct.modelType}
               materialType={selectedMaterial}
             />
 
             {/* Architectural Mode Indicator */}
-            <div className="absolute top-6 left-6 font-mono text-[0.625rem] tracking-[0.25em] uppercase text-veyra-muted pointer-events-none">
+            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 font-mono text-[0.5625rem] sm:text-[0.625rem] tracking-[0.25em] uppercase text-veyra-muted pointer-events-none">
               [ 360° SILHOUETTE VIEW ]
             </div>
           </div>
 
           {/* Right Column: Spec & Selection */}
-          <div className="w-full lg:w-2/5 p-8 lg:p-10 flex flex-col justify-between overflow-y-auto bg-veyra-surface">
+          <div className="w-full lg:w-2/5 p-5 sm:p-8 lg:p-10 flex flex-col justify-between overflow-y-auto bg-veyra-surface">
             <div>
               <div className="flex items-center gap-2 text-[0.625rem] tracking-[0.3em] uppercase text-veyra-brass mb-2 font-medium">
                 <span>The Permanent Vault</span>
