@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useCart } from '../../context/CartContext'
 import { PRODUCTS } from '../../data/products'
 import { X, Sparkles, Calendar, CheckCircle2 } from 'lucide-react'
+import { Button } from './button'
 
 export const PrivateViewingModal: React.FC = () => {
   const {
@@ -75,12 +76,14 @@ export const PrivateViewingModal: React.FC = () => {
               <p className="text-xs text-veyra-muted tracking-[0.04em] mt-3 leading-relaxed max-w-md mx-auto">
                 Our Private Salon Concierge will contact you shortly to coordinate an exclusive examination of your selected piece with physical metallurgy samples.
               </p>
-              <button
+              <Button
+                variant="default"
+                size="lg"
                 onClick={handleClose}
-                className="mt-8 btn-gallery-primary"
+                className="mt-8"
               >
                 Close Dossier
-              </button>
+              </Button>
             </div>
           ) : (
             <div>
@@ -169,10 +172,12 @@ export const PrivateViewingModal: React.FC = () => {
                 </div>
 
                 <div className="pt-3">
-                  <button
+                  <Button
                     type="submit"
                     disabled={submitting}
-                    className="btn-gallery-primary w-full"
+                    variant="default"
+                    size="lg"
+                    className="w-full"
                   >
                     {submitting ? (
                       <span>Dispatching Request...</span>
@@ -182,7 +187,7 @@ export const PrivateViewingModal: React.FC = () => {
                         Confirm Private Viewing Request
                       </span>
                     )}
-                  </button>
+                  </Button>
                 </div>
               </form>
             </div>

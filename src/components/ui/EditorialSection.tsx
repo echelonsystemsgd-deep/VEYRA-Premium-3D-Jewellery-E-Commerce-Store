@@ -1,6 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
+import { Button } from './button'
+import { Badge } from './badge'
 
 export const EditorialSection: React.FC = () => {
   const scrollToCollection = () => {
@@ -23,16 +25,20 @@ export const EditorialSection: React.FC = () => {
               className="w-full h-full object-cover filter contrast-[1.03] brightness-[0.98] hover:scale-105 transition-transform duration-700 ease-out"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-6 left-6 text-white text-[0.625rem] tracking-[0.25em] uppercase font-mono bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-xs border border-white/20">
-              Figure 02 · Tactile Patina Evolution
+            <div className="absolute bottom-6 left-6">
+              <Badge variant="outline" className="bg-black/40 backdrop-blur-md text-white border-white/20">
+                Figure 02 · Tactile Patina Evolution
+              </Badge>
             </div>
           </div>
 
           {/* Right: Editorial Quote & Philosophy */}
           <div className="lg:col-span-6 p-8 sm:p-12 lg:p-14 flex flex-col justify-center">
-            <div className="flex items-center gap-2 text-[0.625rem] tracking-[0.28em] font-mono text-veyra-brass uppercase mb-3">
-              <Sparkles className="w-3 h-3" />
-              <span>The Philosophy of Weight</span>
+            <div className="mb-3">
+              <Badge variant="hallmark">
+                <Sparkles className="w-2.5 h-2.5 mr-1.5" />
+                The Philosophy of Weight
+              </Badge>
             </div>
             <h3 className="font-editorial text-3xl sm:text-4xl lg:text-5xl text-veyra-text font-normal leading-[1.05] tracking-wide">
               "We cast for permanence, not fleeting trend."
@@ -52,9 +58,11 @@ export const EditorialSection: React.FC = () => {
           {/* Left Column: Manifesto & Philosophy */}
           <div className="lg:col-span-7 p-8 sm:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-veyra-border flex flex-col justify-between bg-veyra-surface">
             <div>
-              <span className="text-[0.625rem] tracking-[0.28em] font-mono text-veyra-brass uppercase block mb-3">
-                Atelier Manifesto · 2026
-              </span>
+              <div className="mb-3">
+                <Badge variant="hallmark">
+                  Atelier Manifesto · 2026
+                </Badge>
+              </div>
               <h2 className="font-editorial text-4xl sm:text-6xl md:text-7xl font-normal tracking-[0.02em] text-veyra-text leading-[0.95] mb-8">
                 Made Without<br />Compromise
               </h2>
@@ -74,15 +82,15 @@ export const EditorialSection: React.FC = () => {
 
             {/* "VIEW COLLECTION ➔" */}
             <div className="pt-12">
-              <button
+              <Button
+                variant="outline"
+                size="lg"
                 onClick={scrollToCollection}
-                className="group inline-flex items-center gap-4 text-xs tracking-[0.25em] uppercase text-veyra-text font-medium"
+                className="group"
               >
                 <span>View Collection</span>
-                <div className="w-9 h-9 rounded-full border border-veyra-border group-hover:border-veyra-text flex items-center justify-center transition-all duration-300 group-hover:translate-x-1 bg-veyra-surface shadow-xs">
-                  <ArrowRight className="w-3 h-3 stroke-[1.5]" />
-                </div>
-              </button>
+                <ArrowRight className="w-3.5 h-3.5 ml-3 group-hover:translate-x-1 transition-transform stroke-[1.5]" />
+              </Button>
             </div>
           </div>
 

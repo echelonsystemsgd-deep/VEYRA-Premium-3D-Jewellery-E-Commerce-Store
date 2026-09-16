@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { PRODUCTS, MaterialType, MATERIAL_CONFIG } from '../../data/products'
 import { useCart } from '../../context/CartContext'
+import { Badge } from './badge'
 
 export const ProductGrid: React.FC = () => {
   const { setActiveModalProduct } = useCart()
@@ -20,9 +21,11 @@ export const ProductGrid: React.FC = () => {
       {/* Section Header */}
       <div className="max-w-7xl mx-auto border-x border-veyra-border bg-veyra-surface px-6 md:px-12 py-10 border-b border-veyra-border flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <span className="text-[0.625rem] tracking-[0.28em] font-mono text-veyra-brass uppercase block mb-1">
-            Archival Release · 01
-          </span>
+          <div className="mb-2">
+            <Badge variant="hallmark">
+              Archival Release · 01
+            </Badge>
+          </div>
           <h2 className="font-editorial text-3xl sm:text-4xl text-veyra-text font-normal tracking-wide">
             The Permanent Collection
           </h2>

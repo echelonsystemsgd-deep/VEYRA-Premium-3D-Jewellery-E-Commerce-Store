@@ -2,6 +2,9 @@ import React, { useRef, useState, useEffect } from 'react'
 import { ArrowDown, Sparkles, Eye, Layers, Shield } from 'lucide-react'
 import { useCart } from '../../context/CartContext'
 import { PRODUCTS, MATERIAL_CONFIG, MaterialType } from '../../data/products'
+import { Button } from '../ui/button'
+import { Badge } from '../ui/badge'
+import { Tabs, TabsList, TabsTrigger } from '../ui/tabs'
 
 /**
  * VEYRA — Luminous Cinematic Narrative Hero
@@ -138,65 +141,59 @@ export const CinematicHero: React.FC = () => {
               Solid cast, unplated jewelry engineered with intentional mass. Hand-finished to patina with touch, friction, and time.
             </p>
 
-            {/* Interactive Metallurgy Selector */}
-            <div className="mt-8 p-4 rounded-sm bg-veyra-surface border border-veyra-border max-w-md shadow-sm">
-              <div className="flex items-center justify-between text-[0.625rem] tracking-[0.2em] uppercase text-veyra-muted mb-2 font-mono">
+            {/* Interactive Metallurgy Selector (Shadcn Tabs) */}
+            <div className="mt-8 p-4 rounded-xs bg-veyra-surface border border-veyra-border max-w-md shadow-xs">
+              <div className="flex items-center justify-between text-[0.625rem] tracking-[0.2em] uppercase text-veyra-muted mb-3 font-mono">
                 <span className="flex items-center gap-1.5 font-medium text-veyra-text">
-                  <Layers className="w-3 h-3 text-veyra-brass" />
+                  <Layers className="w-3.5 h-3.5 text-veyra-brass" />
                   Alloy Selector
                 </span>
                 <span className="text-veyra-brass font-medium">{currentAlloyConfig.name}</span>
               </div>
 
-              <div className="grid grid-cols-3 gap-2 mt-2">
-                {(['oxidised-silver', 'blackened-bronze', 'raw-brass'] as MaterialType[]).map((mat) => {
-                  const cfg = MATERIAL_CONFIG[mat]
-                  const isSelected = selectedAlloy === mat
-                  return (
-                    <button
-                      key={mat}
-                      onClick={() => setSelectedAlloy(mat)}
-                      className={`px-2.5 py-2 text-left border rounded-sm transition-all duration-300 flex items-center gap-2 ${
-                        isSelected
-                          ? 'border-veyra-text bg-veyra-subtle shadow-xs'
-                          : 'border-veyra-border hover:border-veyra-text/40 bg-veyra-surface'
-                      }`}
-                    >
-                      <span
-                        className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: cfg.accentColor }}
-                      />
-                      <span className="text-[0.5625rem] tracking-[0.14em] uppercase text-veyra-text font-medium truncate">
-                        {cfg.name.split(' ')[0]}
-                      </span>
-                    </button>
-                  )
-                })}
-              </div>
+              <Tabs value={selectedAlloy} onValueChange={(val) => setSelectedAlloy(val as MaterialType)}>
+                <TabsList className="grid grid-cols-3 w-full h-auto p-1 gap-1 bg-veyra-subtle border border-veyra-border/60">
+                  <TabsTrigger value="oxidised-silver" className="flex items-center gap-1.5 py-2">
+                    <span className="w-2 h-2 rounded-full bg-[#c5c8cc]" />
+                    <span className="truncate">Silver</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="blackened-bronze" className="flex items-center gap-1.5 py-2">
+                    <span className="w-2 h-2 rounded-full bg-[#8a6e55]" />
+                    <span className="truncate">Bronze</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="raw-brass" className="flex items-center gap-1.5 py-2">
+                    <span className="w-2 h-2 rounded-full bg-[#d6b36e]" />
+                    <span className="truncate">Brass</span>
+                  </TabsTrigger>
+                </TabsList>
+              </Tabs>
 
-              <p className="text-[0.6875rem] text-veyra-muted mt-2.5 leading-relaxed">
+              <p className="text-xs text-veyra-muted mt-3 leading-relaxed">
                 {currentAlloyConfig.description}
               </p>
             </div>
 
-            {/* Action Buttons */}
+            {/* Action Buttons (Shadcn Button primitives) */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <button
+              <Button
+                variant="default"
+                size="lg"
                 onClick={scrollToCollection}
-                className="btn-gallery-primary group"
+                className="group"
                 aria-label="Scroll to collection"
               >
                 <span>Explore The Archive</span>
-                <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
-              </button>
+                <ArrowDown className="w-3.5 h-3.5 ml-2 group-hover:translate-y-0.5 transition-transform" />
+              </Button>
 
-              <button
+              <Button
+                variant="outline"
+                size="lg"
                 onClick={() => handleInspectProduct('solitary-cabochon')}
-                className="btn-gallery-outline text-[0.6875rem]"
               >
-                <Eye className="w-3.5 h-3.5 text-veyra-brass" />
+                <Eye className="w-3.5 h-3.5 mr-2 text-veyra-brass" />
                 <span>Inspect Featured Piece</span>
-              </button>
+              </Button>
             </div>
           </div>
 
@@ -253,44 +250,48 @@ export const CinematicHero: React.FC = () => {
                       />
                     </button>
 
-                    {/* Interactive Tooltip / Micro-Card */}
+                    {/* Interactive Tooltip / Micro-Card (Shadcn Card styling) */}
                     {isActive && (
                       <div
                         onMouseLeave={() => setActiveHotspot(null)}
-                        className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-56 p-3.5 rounded-sm bg-veyra-surface/98 backdrop-blur-md border border-veyra-border shadow-xl text-left z-40 animate-in fade-in zoom-in-95 duration-200"
+                        className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-60 p-4 rounded-xs bg-veyra-surface/98 backdrop-blur-md border border-veyra-border shadow-xl text-left z-40 animate-in fade-in zoom-in-95 duration-200"
                       >
-                        <div className="flex items-center gap-1.5 text-[0.5625rem] tracking-[0.2em] uppercase text-veyra-brass font-mono">
-                          <Sparkles className="w-2.5 h-2.5" />
-                          <span>Worn Piece</span>
+                        <div className="flex items-center justify-between">
+                          <Badge variant="hallmark" className="text-[0.5rem] px-1.5 py-0.5">
+                            <Sparkles className="w-2 h-2 mr-1" />
+                            Worn Piece
+                          </Badge>
+                          <span className="text-[0.5625rem] font-mono text-veyra-muted">{spot.weight}</span>
                         </div>
-                        <h4 className="font-editorial text-base text-veyra-text font-normal mt-1 leading-snug">
+                        <h4 className="font-editorial text-lg text-veyra-text font-normal mt-2 leading-snug">
                           {spot.label}
                         </h4>
-                        <div className="text-[0.625rem] font-mono text-veyra-muted mt-1">
-                          {spot.weight}
-                        </div>
-                        <p className="text-[0.625rem] text-veyra-faint mt-1 leading-tight">
+                        <p className="text-[0.625rem] text-veyra-muted mt-1 leading-tight">
                           {spot.metal}
                         </p>
-                        <button
+                        <Button
+                          variant="default"
+                          size="sm"
                           onClick={(e) => {
                             e.stopPropagation()
                             handleInspectProduct(spot.productId)
                           }}
-                          className="mt-2.5 w-full py-1 px-2 text-center text-[0.5625rem] tracking-[0.16em] uppercase bg-veyra-text text-white rounded-xs hover:bg-black transition-colors font-medium flex items-center justify-center gap-1.5"
+                          className="mt-3 w-full h-8 text-[0.5625rem]"
                         >
-                          <Eye className="w-2.5 h-2.5" />
+                          <Eye className="w-3 h-3 mr-1.5" />
                           <span>Inspect in 3D</span>
-                        </button>
+                        </Button>
                       </div>
                     )}
                   </div>
                 )
               })}
 
-              {/* Touch Indicator Badge */}
-              <div className="absolute bottom-3 right-3 z-20 px-2.5 py-1 rounded-sm bg-veyra-surface/90 backdrop-blur-xs border border-veyra-border text-[0.5625rem] tracking-[0.2em] font-mono text-veyra-muted uppercase shadow-xs">
-                Interactive Ring Touchpoints
+              {/* Touch Indicator Badge (Shadcn Badge) */}
+              <div className="absolute bottom-3 right-3 z-20">
+                <Badge variant="outline" className="bg-veyra-surface/90 backdrop-blur-xs text-[0.5625rem] py-1 px-2.5">
+                  Interactive Ring Touchpoints
+                </Badge>
               </div>
 
             </div>

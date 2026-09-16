@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useCart } from '../../context/CartContext'
 import { MATERIAL_CONFIG } from '../../data/products'
 import { X, Trash2, ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { Button } from './button'
 
 export const CartDrawer: React.FC = () => {
   const {
@@ -84,12 +85,14 @@ export const CartDrawer: React.FC = () => {
                   Your piece has entered our London silversmith workshop queue. A bespoke provenance dossier and solid wooden vault box will accompany the shipment.
                 </p>
                 <div className="mt-8">
-                  <button
+                  <Button
+                    variant="default"
+                    size="lg"
                     onClick={handleClose}
-                    className="btn-gallery-primary w-full"
+                    className="w-full"
                   >
                     Return to Atelier
-                  </button>
+                  </Button>
                 </div>
               </div>
             ) : cart.length === 0 ? (
@@ -100,12 +103,14 @@ export const CartDrawer: React.FC = () => {
                 <p className="text-xs text-veyra-muted tracking-[0.1em] mt-2 uppercase font-mono">
                   Explore our permanent archival pieces.
                 </p>
-                <button
+                <Button
+                  variant="outline"
+                  size="sm"
                   onClick={handleClose}
-                  className="mt-6 btn-gallery-outline text-[0.6875rem]"
+                  className="mt-6"
                 >
                   Explore Collection
-                </button>
+                </Button>
               </div>
             ) : (
               <div className="flex-1 overflow-y-auto py-6 space-y-4">
@@ -200,20 +205,22 @@ export const CartDrawer: React.FC = () => {
                   </span>
                 </div>
 
-                <button
+                <Button
+                  variant="default"
+                  size="lg"
                   onClick={handleSimulatedCheckout}
                   disabled={isCheckingOut}
-                  className="btn-gallery-primary w-full mt-2"
+                  className="w-full mt-2"
                 >
                   {isCheckingOut ? (
                     <span>Securing Cast Allocation...</span>
                   ) : (
                     <>
                       <span>Proceed to Secure Checkout</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-3.5 h-3.5 ml-2" />
                     </>
                   )}
-                </button>
+                </Button>
 
                 <div className="flex items-center justify-center gap-2 text-[0.5625rem] tracking-[0.2em] uppercase text-veyra-faint">
                   <ShieldCheck className="w-3 h-3 text-veyra-brass" />

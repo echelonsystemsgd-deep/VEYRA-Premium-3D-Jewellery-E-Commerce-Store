@@ -4,6 +4,8 @@ import { ProductDetailViewer } from '../3d/ProductDetailViewer'
 import { useCart } from '../../context/CartContext'
 import { MaterialType, MATERIAL_CONFIG } from '../../data/products'
 import { X, Shield, Sparkles, Truck, Check, RefreshCw } from 'lucide-react'
+import { Button } from './button'
+import { Badge } from './badge'
 
 export const ProductModal: React.FC = () => {
   const { activeModalProduct, setActiveModalProduct, addToCart, openPrivateViewing } = useCart()
@@ -176,30 +178,34 @@ export const ProductModal: React.FC = () => {
 
             {/* Bottom Actions */}
             <div className="mt-8 pt-5 border-t border-veyra-border flex flex-col gap-3">
-              <button
+              <Button
+                variant="default"
+                size="lg"
                 onClick={handleAddToCart}
-                className="btn-gallery-primary w-full"
+                className="w-full"
               >
                 {isAdded ? (
                   <>
-                    <Check className="w-4 h-4 text-emerald-500" />
+                    <Check className="w-4 h-4 mr-2 text-emerald-400" />
                     <span>Added to Bag</span>
                   </>
                 ) : (
                   <span>Add to Bag · ${activeModalProduct.price} USD</span>
                 )}
-              </button>
+              </Button>
 
-              <button
+              <Button
+                variant="outline"
+                size="default"
                 onClick={() => {
                   setActiveModalProduct(null)
                   openPrivateViewing(activeModalProduct)
                 }}
-                className="btn-gallery-outline w-full text-[0.625rem]"
+                className="w-full text-[0.625rem]"
               >
-                <Sparkles className="w-3 h-3 text-veyra-brass" />
+                <Sparkles className="w-3.5 h-3.5 mr-2 text-veyra-brass" />
                 <span>Request Private Viewing Appointment</span>
-              </button>
+              </Button>
 
               <div className="flex items-center justify-center gap-5 text-[0.5625rem] tracking-[0.2em] uppercase text-veyra-faint pt-2">
                 <span className="flex items-center gap-1">
