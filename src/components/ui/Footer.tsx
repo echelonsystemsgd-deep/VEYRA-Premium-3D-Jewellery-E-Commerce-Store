@@ -100,14 +100,27 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Rights */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[0.625rem] tracking-[0.2em] uppercase text-veyra-faint gap-4 font-mono">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-[0.625rem] tracking-[0.2em] uppercase text-veyra-faint gap-4 font-mono">
           <span>© {new Date().getFullYear()} VEYRA ATELIER LTD. ALL RIGHTS RESERVED.</span>
-          <div className="flex gap-6">
-            <span className="hover:text-veyra-text cursor-pointer">PRIVACY</span>
+          
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <span className="hover:text-veyra-text cursor-pointer transition-colors">PRIVACY</span>
             <span>·</span>
-            <span className="hover:text-veyra-text cursor-pointer">TERMS</span>
+            <span className="hover:text-veyra-text cursor-pointer transition-colors">TERMS</span>
             <span>·</span>
-            <span className="hover:text-veyra-text cursor-pointer">PROVENANCE</span>
+            <span className="hover:text-veyra-text cursor-pointer transition-colors">PROVENANCE</span>
+            <span>·</span>
+            <span>
+              Designed &amp; Built by{' '}
+              <a
+                href="https://mercianwealth.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-veyra-text underline underline-offset-2 transition-colors decoration-veyra-border"
+              >
+                Mercian Wealth
+              </a>
+            </span>
           </div>
         </div>
       </div>

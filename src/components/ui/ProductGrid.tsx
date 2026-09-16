@@ -63,7 +63,7 @@ export const ProductGrid: React.FC = () => {
                 <div className="relative w-full h-72 sm:h-80 flex items-center justify-center overflow-hidden p-6">
                   <img
                     src={product.image}
-                    alt={product.name}
+                    alt={`${product.name} — ${product.subtitle}`}
                     loading="lazy"
                     className="w-full h-full object-contain filter contrast-[1.04] brightness-[0.99] group-hover:scale-105 transition-transform duration-600 ease-out"
                   />

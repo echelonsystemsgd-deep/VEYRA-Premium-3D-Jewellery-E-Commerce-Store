@@ -2,17 +2,252 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VEYRA — Forged in Silence | Permanent 3D Jewellery</title>
-    <meta name="description" content="Quiet, heavy, permanent jewellery. Oxidised metals, deliberate weight, no plating, no compromise. Explore VEYRA in real-time interactive 3D." />
-    <meta name="color-scheme" content="light">
-    <meta name="theme-color" content="#fbf9f5" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Primary Identity & Metadata -->
+    <title>VEYRA — Forged in Silence | Permanent Jewellery Atelier</title>
+    <meta name="description" content="Solid cast, unplated permanent jewellery engineered with intentional mass. Hand-finished 925 sterling silver, blackened bronze &amp; raw brass. Explore the VEYRA atelier." />
+    <link rel="canonical" href="https://veyra-jewellery.com/" />
+    
+    <!-- Web Identity & Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="application-name" content="VEYRA" />
+    <meta name="apple-mobile-web-app-title" content="VEYRA" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#fafaf9" />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:site_name" content="VEYRA" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://veyra-jewellery.com/" />
+    <meta property="og:title" content="VEYRA — Forged in Silence | Permanent Jewellery Atelier" />
+    <meta property="og:description" content="Solid cast, unplated permanent jewellery engineered with intentional mass. Hand-finished 925 sterling silver, blackened bronze &amp; raw brass." />
+    <meta property="og:image" content="https://veyra-jewellery.com/images/hero-model-hand.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:image:alt" content="Artisan hand wearing VEYRA solid cast statement rings" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VEYRA — Forged in Silence | Permanent Jewellery Atelier" />
+    <meta name="twitter:description" content="Quiet, heavy, permanent jewellery. Solid 925 sterling silver, blackened bronze, and unlacquered raw brass." />
+    <meta name="twitter:image" content="https://veyra-jewellery.com/images/hero-model-hand.jpg" />
+    <meta name="twitter:image:alt" content="Artisan hand wearing VEYRA solid cast statement rings" />
+
+    <!-- Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data (JSON-LD): Organization & WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://veyra-jewellery.com/#organization",
+          "name": "VEYRA ATELIER LTD",
+          "alternateName": "VEYRA",
+          "url": "https://veyra-jewellery.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://veyra-jewellery.com/favicon.svg"
+          },
+          "description": "Artisanal atelier forging solid unplated permanent jewellery in 925 sterling silver, silicon bronze, and unlacquered raw brass.",
+          "knowsAbout": [
+            "Permanent Jewellery",
+            "Lost-wax Casting",
+            "925 Sterling Silver Patination",
+            "Silicon Bronze Metallurgy",
+            "Unlacquered Raw Brass"
+          ],
+          "location": [
+            {
+              "@type": "Place",
+              "name": "VEYRA Mayfair Salon",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "London",
+                "addressRegion": "Mayfair",
+                "addressCountry": "GB"
+              }
+            },
+            {
+              "@type": "Place",
+              "name": "VEYRA Tribeca Salon",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "New York",
+                "addressRegion": "Tribeca",
+                "addressCountry": "US"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://veyra-jewellery.com/#website",
+          "url": "https://veyra-jewellery.com",
+          "name": "VEYRA",
+          "description": "Quiet, heavy, permanent jewellery. Oxidised metals, deliberate weight, no plating, no compromise.",
+          "publisher": {
+            "@id": "https://veyra-jewellery.com/#organization"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data (JSON-LD): ItemList / Permanent Product Archive -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "VEYRA Permanent Collection Archive",
+      "description": "Solid non-hollow cast jewellery forged in 925 sterling silver, silicon bronze, and unlacquered raw brass.",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Product",
+            "name": "The Monolith Signet I",
+            "description": "Cast in heavy 925 sterling silver with elongated oval seal and hand-patinated liver of sulfur oxidation.",
+            "image": "https://veyra-jewellery.com/images/uQViM.jpg",
+            "brand": {
+              "@type": "Brand",
+              "name": "VEYRA"
+            },
+            "material": "Solid 925 Sterling Silver",
+            "offers": {
+              "@type": "Offer",
+              "price": "440.00",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "url": "https://veyra-jewellery.com/#collection"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Product",
+            "name": "The Solitary Cabochon",
+            "description": "A monolithic ring in blackened silicon bronze carrying a deep raw crimson garnet cabochon stone.",
+            "image": "https://veyra-jewellery.com/images/a95lc.jpg",
+            "brand": {
+              "@type": "Brand",
+              "name": "VEYRA"
+            },
+            "material": "Blackened Silicon Bronze & Raw Garnet",
+            "offers": {
+              "@type": "Offer",
+              "price": "620.00",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "url": "https://veyra-jewellery.com/#collection"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Product",
+            "name": "Triptych Bands",
+            "description": "Three substantial, organically contoured nesting bands designed to be worn stacked together or distributed across fingers.",
+            "image": "https://veyra-jewellery.com/images/c1Qnj.jpg",
+            "brand": {
+              "@type": "Brand",
+              "name": "VEYRA"
+            },
+            "material": "Unlacquered Raw Brass",
+            "offers": {
+              "@type": "Offer",
+              "price": "510.00",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "url": "https://veyra-jewellery.com/#collection"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Product",
+            "name": "The Relic Band",
+            "description": "Inspired by archaic ceremonial artifacts, with high-relief granulation submerged in heavy oxidation.",
+            "image": "https://veyra-jewellery.com/images/rtzOI.jpg",
+            "brand": {
+              "@type": "Brand",
+              "name": "VEYRA"
+            },
+            "material": "Solid 925 Sterling Silver",
+            "offers": {
+              "@type": "Offer",
+              "price": "490.00",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "url": "https://veyra-jewellery.com/#collection"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "Product",
+            "name": "The Monolith Signet II",
+            "description": "A brutalist signet with planar top face and cold patination cast in heavy silicon bronze.",
+            "image": "https://veyra-jewellery.com/images/S2JNA.jpg",
+            "brand": {
+              "@type": "Brand",
+              "name": "VEYRA"
+            },
+            "material": "Blackened Silicon Bronze",
+            "offers": {
+              "@type": "Offer",
+              "price": "460.00",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "url": "https://veyra-jewellery.com/#collection"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "Product",
+            "name": "The Sovereign Band",
+            "description": "A perpetual band engineered with steep chamfer and heavy gauge in solid 925 silver.",
+            "image": "https://veyra-jewellery.com/images/7OQGa.jpg",
+            "brand": {
+              "@type": "Brand",
+              "name": "VEYRA"
+            },
+            "material": "Solid 925 Sterling Silver",
+            "offers": {
+              "@type": "Offer",
+              "price": "420.00",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "url": "https://veyra-jewellery.com/#collection"
+            }
+          }
+        }
+      ]
+    }
+    </script>
   </head>
-  <body class="bg-[#fbf9f5] text-[#1c1917] font-sans antialiased selection:bg-[#967538]/20 selection:text-[#1c1917]">
+  <body class="bg-[#fafaf9] text-[#1c1917] font-sans antialiased selection:bg-[#967538]/20 selection:text-[#1c1917]">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
