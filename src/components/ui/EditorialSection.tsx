@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 
 export const EditorialSection: React.FC = () => {
   const scrollToCollection = () => {
@@ -10,11 +10,46 @@ export const EditorialSection: React.FC = () => {
 
   return (
     <section id="editorial" className="relative bg-veyra-bg text-veyra-text border-t border-veyra-border overflow-hidden">
-      {/* Container with matching architectural grid borders */}
+      
+      {/* 1. Full-Width Editorial Macro Banner (Carrying the Model's Visual Narrative into Section 2) */}
+      <div className="max-w-7xl mx-auto border-x border-veyra-border bg-veyra-surface border-b border-veyra-border">
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
+          
+          {/* Left: Close-up macro visual of the hand wearing multiple rings */}
+          <div className="lg:col-span-6 relative h-80 sm:h-96 lg:h-[28rem] overflow-hidden border-b lg:border-b-0 lg:border-r border-veyra-border">
+            <img
+              src="/images/hero-model-hand.jpg"
+              alt="Artisan hand wearing multiple solid cast rings"
+              className="w-full h-full object-cover filter contrast-[1.03] brightness-[0.98] hover:scale-105 transition-transform duration-700 ease-out"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-6 left-6 text-white text-[0.625rem] tracking-[0.25em] uppercase font-mono bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-xs border border-white/20">
+              Figure 02 · Tactile Patina Evolution
+            </div>
+          </div>
+
+          {/* Right: Editorial Quote & Philosophy */}
+          <div className="lg:col-span-6 p-8 sm:p-12 lg:p-14 flex flex-col justify-center">
+            <div className="flex items-center gap-2 text-[0.625rem] tracking-[0.28em] font-mono text-veyra-brass uppercase mb-3">
+              <Sparkles className="w-3 h-3" />
+              <span>The Philosophy of Weight</span>
+            </div>
+            <h3 className="font-editorial text-3xl sm:text-4xl lg:text-5xl text-veyra-text font-normal leading-[1.05] tracking-wide">
+              "We cast for permanence, not fleeting trend."
+            </h3>
+            <p className="text-xs sm:text-sm text-veyra-muted mt-4 leading-relaxed max-w-md font-normal">
+              Every ring begins as an unyielding ingot of virgin metal. We do not plate, we do not hollow, and we never polish away the human touch.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      {/* 2. Architectural Grid: Manifesto & 3 Specification Cards */}
       <div className="max-w-7xl mx-auto border-x border-veyra-border bg-veyra-bg relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12">
           
-          {/* Left Column: Manifesto & Philosophy (Matching 00:07 in video) */}
+          {/* Left Column: Manifesto & Philosophy */}
           <div className="lg:col-span-7 p-8 sm:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-veyra-border flex flex-col justify-between bg-veyra-surface">
             <div>
               <span className="text-[0.625rem] tracking-[0.28em] font-mono text-veyra-brass uppercase block mb-3">
@@ -51,7 +86,7 @@ export const EditorialSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: 3 Architectural Specification Cells (Matching 00:07 in video) */}
+          {/* Right Column: 3 Architectural Specification Cells */}
           <div className="lg:col-span-5 flex flex-col bg-veyra-bg">
             {/* Cell 1: Deliberate Weight */}
             <div className="p-8 sm:p-12 border-b border-veyra-border flex flex-col justify-between flex-1 bg-veyra-surface hover:bg-veyra-subtle/50 transition-colors">
