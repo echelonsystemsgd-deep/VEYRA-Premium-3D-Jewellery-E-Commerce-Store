@@ -74,22 +74,37 @@ All margin, padding, height, width, and gap values conform to an **8px base grid
 * **Architectural Hairline Grid**: 3-column desktop layout framed by `border-veyra-border` hairline lines matching the visual video reference.
 * **Interactive Inspection Trigger**: Clicking any product opens the dedicated 3D Studio Configurator.
 
-### 3. 360° Studio Configurator Modal (`ProductModal.tsx`)
-* **Targeted WebGL Experience**: OrbitControls with damping, studio gallery lighting, and real-time PBR material shaders (Oxidised 925 Silver, Silicon Bronze, Raw Brass).
-* **Selection Controls**: Real-time US ring size selector (6–13) and "Add to Bag" cart integration.
+### 3. Dual-Mode Studio Configurator Modal (`ProductModal.tsx`)
+* **Authentic Studio Photography Showcase**: Displays the true, high-resolution physical jewellery photograph (`uQViM.jpg`, `a95lc.jpg`, etc.) by default with interactive macro zoom upon cursor hover and studio contact shadow.
+* **Segmented Mode Switcher**:
+  * `[ ATELIER PHOTO ]`: High-definition studio portrait of the physical piece.
+  * `[ 360° 3D STUDIO ]`: Interactive Three.js WebGL model with damped OrbitControls and live PBR alloy shaders (Oxidised 925 Silver, Blackened Silicon Bronze, Raw Brass).
+* **Multi-Angle Thumbnail Rail**: Instant switching between Studio Macro Portrait, Hand Fit Context (`/images/hero-model-hand.jpg`), and 360° Silhouette Canvas.
+* **Alloy Continuity**: Selected alloy choice from the Collection Grid card seamlessly transfers into the modal on open.
+* **Tactile Controls**: Real-time US ring size selector (6–13), direct Sizing Guide trigger, and animated "Add to Bag" feedback.
 
-### 4. Editorial Manifesto (`EditorialSection.tsx`)
+### 4. International Ring Sizing Dossier (`SizingGuideModal.tsx`)
+* **Complete Conversion Standard**: Full conversion table covering US (6–13), UK/AU (L ½ to Z ½), EU (52 to 70), Inside Diameter (mm), and Inside Circumference (mm).
+* **Artisanal Fit Guidance**: Explicit recommendations for wide gauge bands (e.g. The Sovereign Band) and complimentary 60-day resizing policy.
+* **Accessible Entry Points**: Triggerable directly from the product sizing selector, footer care links, and atelier navigation.
+
+### 5. Editorial Manifesto (`EditorialSection.tsx`)
 * **"Made Without Compromise"**: Dual-column layout mirroring `00:07` in the fashion reference video.
 * **Specifications**: Three structured architectural cells (`[ 01 ] Deliberate Weight`, `[ 02 ] Sterling & Silver`, `[ 03 ] Lifetime Guarantee`).
 
-### 5. Client Concierge & Commerce (`CartDrawer.tsx` & `PrivateViewingModal.tsx`)
-* **Discreet Courier Dispatch**: Slide-over cart drawer with live subtotal calculation, complimentary shipping indicator, and checkout simulation.
-* **Private Viewing Salon**: Dedicated booking modal for London Mayfair, Tribeca NY, or Virtual 3D examinations.
+### 6. Client Concierge & Commerce (`CartDrawer.tsx` & `PrivateViewingModal.tsx`)
+* **Discreet Courier Dispatch**: Slide-over cart drawer with live subtotal calculation, complimentary shipping indicator, and simulated checkout sequence (*"Acquisition Confirmed"* receipt).
+* **Private Viewing Salon**: Dedicated appointment booking modal for London Mayfair, Tribeca NY, or Virtual 3D examinations.
 
 ---
 
 ## 6. Verification & Health
 
+* **Hotspot Integrity**: Corrected hotspot ID (`monolith-signet-1` -> `monolith-signet-i`) in `CinematicHero.tsx` ensuring 100% interactive fidelity.
+* **Token Uniformity**: Cleaned up all legacy non-palette hex codes in `src/styles/index.css` and `button.tsx`.
 * **TypeScript Compilation**: `0` errors (`npx tsc --noEmit` passes cleanly).
-* **Production Build**: `npm run build` succeeds cleanly with assets optimized.
-* **Responsive Layout**: Validated across mobile, tablet, and ultra-wide displays without horizontal overflow (`overflow-x: clip`).
+* **Production Build**: `npm run build` succeeds cleanly with assets optimized:
+  * `dist/index.html` (10.45 kB)
+  * `dist/assets/index-Do1SInRU.css` (42.84 kB)
+  * `dist/assets/index-C0JjXACF.js` (1,280.11 kB)
+* **Responsive Layout**: Validated across mobile, tablet, and ultra-wide displays with strict touch isolation and `overflow-x: clip`.

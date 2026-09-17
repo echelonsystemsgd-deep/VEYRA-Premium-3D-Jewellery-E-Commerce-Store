@@ -54,13 +54,20 @@ export const ProductGrid: React.FC = () => {
                 transition={{ duration: 0.6, delay: (index % 3) * 0.1 }}
                 onMouseEnter={() => setHoveredId(product.id)}
                 onMouseLeave={() => setHoveredId(null)}
-                onClick={() => setActiveModalProduct(product)}
+                onClick={() => setActiveModalProduct(product, currentMat)}
                 className={`relative group bg-veyra-surface hover:bg-veyra-subtle/40 transition-colors duration-400 cursor-pointer flex flex-col items-center justify-between p-6 sm:p-8 md:p-12 min-h-[25rem] sm:min-h-[30rem] border-b border-veyra-border ${
                   !isRightCol ? 'md:border-r border-veyra-border' : ''
                 }`}
               >
                 {/* High-Resolution Editorial Product Photography */}
                 <div className="relative w-full h-64 sm:h-72 md:h-80 flex items-center justify-center overflow-hidden p-4 sm:p-6">
+                  {/* Subtle 360 Inspection Hover Tag */}
+                  <div className="absolute top-2 right-2 sm:top-3 sm:right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
+                    <span className="font-mono text-[0.5625rem] tracking-[0.2em] uppercase bg-veyra-surface/95 backdrop-blur-xs border border-veyra-border px-2 py-1 text-veyra-text shadow-2xs rounded-xs">
+                      [ 360° INSPECT ]
+                    </span>
+                  </div>
+
                   <img
                     src={product.image}
                     alt={`${product.name} — ${product.subtitle}`}

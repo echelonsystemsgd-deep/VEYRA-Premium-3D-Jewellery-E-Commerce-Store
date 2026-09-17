@@ -20,11 +20,14 @@ interface CartContextType {
   isCartOpen: boolean
   setIsCartOpen: (open: boolean) => void
   activeModalProduct: Product | null
-  setActiveModalProduct: (product: Product | null) => void
+  activeModalInitialMaterial?: MaterialType
+  setActiveModalProduct: (product: Product | null, initialMaterial?: MaterialType) => void
   isPrivateViewingOpen: boolean
   setIsPrivateViewingOpen: (open: boolean) => void
   selectedPrivateViewingProduct: Product | null
   openPrivateViewing: (product?: Product | null) => void
+  isSizingOpen: boolean
+  setIsSizingOpen: (open: boolean) => void
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined)
@@ -40,9 +43,16 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   })
 
   const [isCartOpen, setIsCartOpen] = useState(false)
-  const [activeModalProduct, setActiveModalProduct] = useState<Product | null>(null)
+  const [activeModalProduct, setActiveModalProductState] = useState<Product | null>(null)
+  const [activeModalInitialMaterial, setActiveModalInitialMaterial] = useState<MaterialType | undefined>(undefined)
   const [isPrivateViewingOpen, setIsPrivateViewingOpen] = useState(false)
   const [selectedPrivateViewingProduct, setSelectedPrivateViewingProduct] = useState<Product | null>(null)
+  const [isSizingOpen, setIsSizingOpen] = useState(false)
+
+  const setActiveModalProduct = (product: Product | null, initialMaterial?: MaterialType) => {
+    setActiveModalProductState(product)
+    setActiveModalInitialMaterial(initialMaterial)
+  }
 
   useEffect(() => {
     try {
@@ -113,11 +123,14 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         isCartOpen,
         setIsCartOpen,
         activeModalProduct,
+        activeModalInitialMaterial,
         setActiveModalProduct,
         isPrivateViewingOpen,
         setIsPrivateViewingOpen,
         selectedPrivateViewingProduct,
-        openPrivateViewing
+        openPrivateViewing,
+        isSizingOpen,
+        setIsSizingOpen
       }}
     >
       {children}

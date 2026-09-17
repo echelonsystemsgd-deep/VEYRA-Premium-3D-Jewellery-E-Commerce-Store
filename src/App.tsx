@@ -9,6 +9,7 @@ import { Footer } from './components/ui/Footer'
 import { ProductModal } from './components/ui/ProductModal'
 import { CartDrawer } from './components/ui/CartDrawer'
 import { PrivateViewingModal } from './components/ui/PrivateViewingModal'
+import { SizingGuideModal } from './components/ui/SizingGuideModal'
 
 export const App: React.FC = () => {
   return (
@@ -36,6 +37,7 @@ export const App: React.FC = () => {
           <ProductModal />
           <CartDrawer />
           <PrivateViewingModal />
+          <SizingGuideModal />
         </div>
       </SmoothScroll>
     </CartProvider>

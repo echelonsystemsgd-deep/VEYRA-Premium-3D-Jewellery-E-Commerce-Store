@@ -54,7 +54,7 @@ const HOTSPOTS: Hotspot[] = [
   },
   {
     id: 'signet',
-    productId: 'monolith-signet-1',
+    productId: 'monolith-signet-i',
     label: 'The Monolith Signet I',
     metal: 'Unlacquered Raw Brass',
     weight: '38.5g Solid Cast',

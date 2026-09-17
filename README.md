@@ -10,26 +10,30 @@
 
 ## ✦ Core Features
 
-### 1. Cinematic 3D Hero Scene
-* **Sculptural Hand & Rings**: Real-time 3D rendered hand adorned with VEYRA signature pieces (*The Monolith Signet I*, *The Solitary Cabochon*, and *Triptych Bands*).
-* **Delicate Breathing Dynamics**: Subtly phased sinusoidal finger motion and slow camera parallax.
-* **Reflective Light Flares**: Directional studio light sweeps tracing across oxidised metal bevels.
-* **Monolithic Typography**: Staggered luxury reveal with Cinzel and Cormorant Garamond serif letterforms.
+### 1. Cinematic Scroll-Scrub Hero Experience
+* **1:1 Canvas Film Reel**: HTML5 Canvas frame-sequence scrub tied directly 1:1 to scroll progress using 72 pre-extracted high-resolution WebP frames — zero video buffer lag or native player controls.
+* **Interactive Hotspots**: Pulsing indicators floating over model digits triggering on-hand inspection popovers.
+* **Living Metallurgy Selector**: Real-time alloy switching with tactile descriptions for *Oxidised 925 Silver*, *Blackened Bronze*, and *Unlacquered Raw Brass*.
+* **Editorial Monogram & Header**: Monolithic typography with Cinzel, Cormorant Garamond, and Plus Jakarta Sans.
 
-### 2. The Archive (Floating 3D Gallery Grid)
-* **Live 3D Viewports**: Each product card features a dedicated interactive 3D canvas.
-* **Idle Floating & Deceleration**: Rings float with natural vertical oscillation and continuous auto-rotation.
-* **Hover Micro-Interactions**: Rings lift vertically, rotation smoothly decelerates, and specular highlights intensify.
-* **Instant Material Switcher**: Preview pieces in *Oxidised Silver (925)*, *Blackened Bronze*, or *Unlacquered Raw Brass* directly on the card.
+### 2. Archival Collection Grid
+* **Editorial Product Photography**: Crisp 2D macro imagery celebrating genuine oxidation, hand-beveled contours, and physical hallmarks.
+* **Architectural Hairline Grid**: 3-column layout framed with subtle stone dividers.
+* **Interactive `[ 360° INSPECT ]` Badge**: Subtle hover cue inviting exploration.
+* **Alloy Selection Memory**: Choosing an alloy dot directly on the card carries over to the modal configurator.
 
-### 3. Interactive 3D Studio Configurator (Detail Modal)
-* **360° Inspection**: Constrained OrbitControls with physics damping to maintain studio aesthetics without model flipping.
-* **Real-time PBR Shader Interpolation**: Custom bump mapping, micro-scratches, edge wear, and gemstone physical transmission (garnet cabochon).
-* **Ring Sizer**: Tactile US size selector (sizes 6–13).
-* **Add to Bag Flow**: Micro-animated feedback linking directly into the cart.
+### 3. Dual-Mode Studio Configurator Modal
+* **Authentic Studio Photography Default**: Showcases the true physical piece in ultra-high resolution with interactive macro hover zoom and contact shadow.
+* **`[ 360° 3D STUDIO ]` Mode**: Instant switch into a real-time WebGL Three.js viewport with constrained OrbitControls and dynamic PBR alloy shaders.
+* **Multi-View Thumbnail Rail**: Quick access to Studio Macro, Hand Fit Context, and 360° Silhouette views.
+* **Integrated Sizing Guide & Add to Bag**: Instant size selection with direct link to the sizing dossier and live cart badge updates.
 
-### 4. Front-End Luxury E-Commerce Experience
-* **Slide-over Bag / Cart Drawer**: Persistent cart state, item removal, quantity adjustment, complimentary worldwide insured courier calculation, and simulated 256-bit checkout.
+### 4. International Ring Sizing Dossier
+* **Complete Conversion Chart**: US (6–13), UK/AU, EU, diameter (mm), and circumference (mm).
+* **Artisanal Guidance**: Specific advice for wide gauge bands (such as The Sovereign Band) and complimentary 60-day resizing policy.
+
+### 5. Client Concierge & Luxury Commerce
+* **Slide-over Bag / Cart Drawer**: Persistent cart state, item removal, quantity adjustment, complimentary worldwide insured courier calculation, and simulated checkout sequence (*"Acquisition Confirmed"* receipt).
 * **Private Salon Viewing Flow**: Dedicated concierge consultation appointment modal for high-ticket pieces and bespoke signet seals (Virtual 3D, London Mayfair, New York Tribeca).
 * **Editorial & Metallurgy Showcase**: "Made Without Compromise" manifesto celebrating solid non-hollow casting, zero surface plating, and lifetime structural guarantees.
 

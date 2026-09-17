@@ -50,14 +50,14 @@ html, body, #root {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #f6f6f8;
+  background: var(--bg-subtle);
 }
 ::-webkit-scrollbar-thumb {
-  background: #d1d1d6;
+  background: var(--border-grid);
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #99999f;
+  background: var(--text-faint);
 }
 
 /* Typography Helpers */
@@ -98,7 +98,7 @@ html, body, #root {
 
 /* Minimalist Luxury Button Styles */
 .btn-gallery-primary {
-  background-color: #121214;
+  background-color: #1c1917;
   color: #ffffff;
   font-family: var(--font-sans);
   font-size: 0.7rem;
@@ -106,7 +106,7 @@ html, body, #root {
   text-transform: uppercase;
   font-weight: 500;
   padding: 14px 28px;
-  border: 1px solid #121214;
+  border: 1px solid #1c1917;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-flex;
@@ -117,19 +117,19 @@ html, body, #root {
 
 .btn-gallery-primary:hover {
   background-color: transparent;
-  color: #121214;
+  color: #1c1917;
 }
 
 .btn-gallery-outline {
   background-color: transparent;
-  color: #121214;
+  color: #1c1917;
   font-family: var(--font-sans);
   font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 500;
   padding: 14px 28px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(28, 25, 23, 0.2);
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-flex;
@@ -139,6 +139,6 @@ html, body, #root {
 }
 
 .btn-gallery-outline:hover {
-  border-color: #121214;
-  background-color: rgba(0, 0, 0, 0.04);
+  border-color: #1c1917;
+  background-color: rgba(28, 25, 23, 0.04);
 }

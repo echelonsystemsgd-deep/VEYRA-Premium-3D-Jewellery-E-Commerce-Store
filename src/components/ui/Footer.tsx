@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { ArrowRight, Check } from 'lucide-react'
+import { useCart } from '../../context/CartContext'
 
 export const Footer: React.FC = () => {
+  const { setIsSizingOpen } = useCart()
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
 
@@ -12,6 +14,11 @@ export const Footer: React.FC = () => {
       setTimeout(() => setSubscribed(false), 3000)
       setEmail('')
     }
+  }
+
+  const scrollToEditorial = () => {
+    const el = document.getElementById('editorial')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -57,10 +64,10 @@ export const Footer: React.FC = () => {
               Atelier & Care
             </h5>
             <ul className="space-y-2.5 text-xs text-veyra-muted tracking-wider">
-              <li><a href="#metallurgy" className="hover:text-veyra-text transition-colors">Metallurgy Guide</a></li>
+              <li><a href="#editorial" className="hover:text-veyra-text transition-colors">Metallurgy Guide</a></li>
               <li><a href="#editorial" className="hover:text-veyra-text transition-colors">Patina Evolution</a></li>
-              <li><span className="hover:text-veyra-text cursor-pointer">Ring Sizing Dossier</span></li>
-              <li><span className="hover:text-veyra-text cursor-pointer">Lifetime Guarantee</span></li>
+              <li><button onClick={() => setIsSizingOpen(true)} className="hover:text-veyra-text transition-colors cursor-pointer text-left">Ring Sizing Dossier</button></li>
+              <li><button onClick={scrollToEditorial} className="hover:text-veyra-text transition-colors cursor-pointer text-left">Lifetime Guarantee</button></li>
             </ul>
           </div>
 
