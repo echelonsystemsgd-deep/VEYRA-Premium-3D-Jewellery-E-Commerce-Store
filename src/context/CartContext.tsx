@@ -62,6 +62,27 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, [cart])
 
+  // Freeze background scrolling and pause Lenis whenever any modal/drawer is open
+  const isAnyModalOpen = Boolean(activeModalProduct || isCartOpen || isPrivateViewingOpen || isSizingOpen)
+
+  useEffect(() => {
+    const lenis = (window as any).__lenisInstance
+    if (isAnyModalOpen) {
+      document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+      lenis?.stop()
+    } else {
+      document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
+      lenis?.start()
+    }
+    return () => {
+      document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
+      lenis?.start()
+    }
+  }, [isAnyModalOpen])
+
   const addToCart = (product: Product, material: MaterialType, size: number) => {
     setCart(prev => {
       const existingIndex = prev.findIndex(

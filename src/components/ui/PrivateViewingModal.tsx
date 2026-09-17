@@ -43,7 +43,11 @@ export const PrivateViewingModal: React.FC = () => {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+        data-lenis-prevent="true"
+        onWheel={(e) => e.stopPropagation()}
+      >
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -58,6 +62,7 @@ export const PrivateViewingModal: React.FC = () => {
           exit={{ opacity: 0, scale: 0.96, y: 15 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="relative w-full max-w-lg bg-veyra-surface border border-veyra-border p-8 sm:p-10 shadow-2xl rounded-sm z-10 text-veyra-text"
+          data-lenis-prevent="true"
         >
           <button
             onClick={handleClose}

@@ -71,7 +71,7 @@ export const PRODUCTS: Product[] = [
     primaryMaterial: 'oxidised-silver',
     availableMaterials: ['oxidised-silver', 'blackened-bronze', 'raw-brass'],
     sizes: [7, 8, 9, 10, 11, 12, 13],
-    image: '/images/uQViM.jpg',
+    image: '/images/a95lc.jpg',
     modelType: 'signet',
     featured: true
   },
@@ -91,7 +91,7 @@ export const PRODUCTS: Product[] = [
     primaryMaterial: 'blackened-bronze',
     availableMaterials: ['blackened-bronze', 'oxidised-silver', 'raw-brass'],
     sizes: [7, 8, 9, 10, 11, 12],
-    image: '/images/a95lc.jpg',
+    image: '/images/c1Qnj.jpg',
     modelType: 'cabochon',
     featured: true
   },
@@ -111,7 +111,7 @@ export const PRODUCTS: Product[] = [
     primaryMaterial: 'raw-brass',
     availableMaterials: ['raw-brass', 'oxidised-silver', 'blackened-bronze'],
     sizes: [6, 7, 8, 9, 10, 11, 12],
-    image: '/images/c1Qnj.jpg',
+    image: '/images/uQViM.jpg',
     modelType: 'stack',
     featured: true
   },

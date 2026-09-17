@@ -37,7 +37,11 @@ export const CartDrawer: React.FC = () => {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 overflow-hidden">
+      <div
+        className="fixed inset-0 z-50 overflow-hidden"
+        data-lenis-prevent="true"
+        onWheel={(e) => e.stopPropagation()}
+      >
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -54,6 +58,7 @@ export const CartDrawer: React.FC = () => {
             exit={{ x: '100%' }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             className="w-screen max-w-md bg-veyra-surface border-l border-veyra-border p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative z-10"
+            data-lenis-prevent="true"
           >
             {/* Header */}
             <div className="flex items-center justify-between pb-6 border-b border-veyra-border">

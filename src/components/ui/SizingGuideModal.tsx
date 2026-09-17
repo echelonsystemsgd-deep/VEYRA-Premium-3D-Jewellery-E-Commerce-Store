@@ -30,7 +30,11 @@ export const SizingGuideModal: React.FC = () => {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+        data-lenis-prevent="true"
+        onWheel={(e) => e.stopPropagation()}
+      >
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -47,6 +51,7 @@ export const SizingGuideModal: React.FC = () => {
           exit={{ opacity: 0, scale: 0.96, y: 15 }}
           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
           className="relative w-full max-w-2xl bg-veyra-surface border border-veyra-border p-6 sm:p-10 shadow-2xl rounded-xs z-10 text-veyra-text max-h-[90vh] overflow-y-auto"
+          data-lenis-prevent="true"
         >
           {/* Close button */}
           <button
