@@ -13,6 +13,7 @@ export interface Product {
   sizes: number[]
   image: string
   modelType: 'signet' | 'cabochon' | 'stack' | 'carved' | 'sovereign'
+  category: 'signet' | 'band' | 'gemstone'
   featured?: boolean
 }
 
@@ -73,6 +74,7 @@ export const PRODUCTS: Product[] = [
     sizes: [7, 8, 9, 10, 11, 12, 13],
     image: '/images/a95lc.jpg',
     modelType: 'signet',
+    category: 'signet',
     featured: true
   },
   {
@@ -93,6 +95,7 @@ export const PRODUCTS: Product[] = [
     sizes: [7, 8, 9, 10, 11, 12],
     image: '/images/c1Qnj.jpg',
     modelType: 'cabochon',
+    category: 'gemstone',
     featured: true
   },
   {
@@ -113,6 +116,7 @@ export const PRODUCTS: Product[] = [
     sizes: [6, 7, 8, 9, 10, 11, 12],
     image: '/images/uQViM.jpg',
     modelType: 'stack',
+    category: 'band',
     featured: true
   },
   {
@@ -133,6 +137,7 @@ export const PRODUCTS: Product[] = [
     sizes: [7, 8, 9, 10, 11, 12],
     image: '/images/rtzOI.jpg',
     modelType: 'carved',
+    category: 'band',
     featured: false
   },
   {
@@ -153,6 +158,7 @@ export const PRODUCTS: Product[] = [
     sizes: [8, 9, 10, 11, 12, 13],
     image: '/images/S2JNA.jpg',
     modelType: 'signet',
+    category: 'signet',
     featured: false
   },
   {
@@ -173,6 +179,7 @@ export const PRODUCTS: Product[] = [
     sizes: [7, 8, 9, 10, 11, 12, 13],
     image: '/images/7OQGa.jpg',
     modelType: 'sovereign',
+    category: 'band',
     featured: false
   }
 ]

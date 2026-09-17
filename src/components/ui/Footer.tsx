@@ -64,8 +64,8 @@ export const Footer: React.FC = () => {
               Atelier & Care
             </h5>
             <ul className="space-y-2.5 text-xs text-veyra-muted tracking-wider">
-              <li><a href="#editorial" className="hover:text-veyra-text transition-colors">Metallurgy Guide</a></li>
-              <li><a href="#editorial" className="hover:text-veyra-text transition-colors">Patina Evolution</a></li>
+              <li><a href="#provenance" className="hover:text-veyra-text transition-colors">Unboxing Protocol</a></li>
+              <li><a href="#care" className="hover:text-veyra-text transition-colors">Client Care & FAQ</a></li>
               <li><button onClick={() => setIsSizingOpen(true)} className="hover:text-veyra-text transition-colors cursor-pointer text-left">Ring Sizing Dossier</button></li>
               <li><button onClick={scrollToEditorial} className="hover:text-veyra-text transition-colors cursor-pointer text-left">Lifetime Guarantee</button></li>
             </ul>

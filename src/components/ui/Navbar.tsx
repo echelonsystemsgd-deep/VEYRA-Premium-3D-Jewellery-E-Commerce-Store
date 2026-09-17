@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useCart } from '../../context/CartContext'
+import { SoundToggle } from './SoundToggle'
 
 export const Navbar: React.FC = () => {
   const { cartCount, setIsCartOpen, openPrivateViewing } = useCart()
@@ -61,8 +62,8 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Center: Minimalist Link (Matching 'ABOUT' in the video) */}
-        <div className="hidden md:flex items-center space-x-12 text-[0.6875rem] tracking-[0.22em] uppercase text-veyra-muted">
+        {/* Center: Minimalist Links */}
+        <div className="hidden md:flex items-center space-x-8 lg:space-x-10 text-[0.6875rem] tracking-[0.22em] uppercase text-veyra-muted">
           <button
             onClick={() => scrollTo('collection')}
             className="hover:text-veyra-text transition-colors duration-300 cursor-pointer"
@@ -70,21 +71,30 @@ export const Navbar: React.FC = () => {
             Collection
           </button>
           <button
-            onClick={() => scrollTo('editorial')}
+            onClick={() => scrollTo('provenance')}
             className="hover:text-veyra-text transition-colors duration-300 cursor-pointer"
           >
-            About
+            Provenance
+          </button>
+          <button
+            onClick={() => scrollTo('care')}
+            className="hover:text-veyra-text transition-colors duration-300 cursor-pointer"
+          >
+            Client Care
           </button>
           <button
             onClick={() => scrollTo('editorial')}
             className="hover:text-veyra-text transition-colors duration-300 cursor-pointer"
           >
-            Metallurgy
+            Atelier
           </button>
         </div>
 
-        {/* Right: [ BAG: 0 ] and ||| Menu (Matching video) */}
-        <div className="flex items-center space-x-4 sm:space-x-6 text-[0.6875rem] tracking-[0.2em] uppercase">
+        {/* Right: Sound Toggle, [ BAG: 0 ] and ||| Menu */}
+        <div className="flex items-center space-x-3 sm:space-x-5 text-[0.6875rem] tracking-[0.2em] uppercase">
+          {/* Ambient Sound Atmosphere Toggle */}
+          <SoundToggle />
+
           {/* Bag button styled as [ BAG: X ] */}
           <button
             onClick={() => setIsCartOpen(true)}
@@ -122,16 +132,22 @@ export const Navbar: React.FC = () => {
               The Archive
             </button>
             <button
-              onClick={() => scrollTo('editorial')}
+              onClick={() => scrollTo('provenance')}
               className="hover:text-veyra-brass py-2 text-sm font-medium transition-colors cursor-pointer"
             >
-              Made Without Compromise
+              Unboxing & Provenance
+            </button>
+            <button
+              onClick={() => scrollTo('care')}
+              className="hover:text-veyra-brass py-2 text-sm font-medium transition-colors cursor-pointer"
+            >
+              Client Care & FAQ
             </button>
             <button
               onClick={() => scrollTo('editorial')}
               className="hover:text-veyra-brass py-2 text-sm font-medium transition-colors cursor-pointer"
             >
-              Living Metallurgy
+              Made Without Compromise
             </button>
             <div className="w-12 h-px bg-veyra-border my-1" />
             <button
