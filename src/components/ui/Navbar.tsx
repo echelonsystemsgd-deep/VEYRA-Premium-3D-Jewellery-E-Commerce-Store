@@ -63,7 +63,7 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Center: Minimalist Links */}
-        <div className="hidden md:flex items-center space-x-8 lg:space-x-10 text-[0.6875rem] tracking-[0.22em] uppercase text-veyra-muted">
+        <div className="hidden lg:flex items-center space-x-8 xl:space-x-10 text-[0.6875rem] tracking-[0.22em] uppercase text-veyra-muted">
           <button
             onClick={() => scrollTo('collection')}
             className="hover:text-veyra-text transition-colors duration-300 cursor-pointer"
@@ -91,14 +91,14 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Right: Sound Toggle, [ BAG: 0 ] and ||| Menu */}
-        <div className="flex items-center space-x-3 sm:space-x-5 text-[0.6875rem] tracking-[0.2em] uppercase">
+        <div className="flex items-center space-x-2.5 sm:space-x-4 text-[0.6875rem] tracking-[0.2em] uppercase shrink-0">
           {/* Ambient Sound Atmosphere Toggle */}
           <SoundToggle />
 
           {/* Bag button styled as [ BAG: X ] */}
           <button
             onClick={() => setIsCartOpen(true)}
-            className="text-veyra-text hover:text-veyra-muted transition-colors duration-300 font-mono text-[0.625rem] sm:text-[0.6875rem] cursor-pointer"
+            className="text-veyra-text hover:text-veyra-muted transition-colors duration-300 font-mono text-[0.625rem] sm:text-[0.6875rem] cursor-pointer whitespace-nowrap shrink-0"
             aria-label="View Bag"
           >
             [ BAG: {cartCount} ]

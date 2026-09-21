@@ -286,7 +286,7 @@ export const ProductModal: React.FC = () => {
                           style={{ backgroundColor: itemConfig.accentColor }}
                         />
                         <span className="text-[0.5625rem] sm:text-[0.625rem] tracking-[0.1em] uppercase text-veyra-text font-medium truncate font-mono">
-                          {itemConfig.name.split(' ')[0]}
+                          {itemConfig.shortName}
                         </span>
                       </button>
                     )

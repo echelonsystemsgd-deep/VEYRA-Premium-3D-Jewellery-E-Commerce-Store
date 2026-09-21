@@ -87,11 +87,11 @@ export const Footer: React.FC = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="collector@domain.com"
                   required
-                  className="w-full bg-veyra-surface border border-veyra-border px-3 py-2 text-xs text-veyra-text focus:border-veyra-text focus:outline-none rounded-sm placeholder-veyra-faint"
+                  className="w-full bg-veyra-surface border border-veyra-border px-3 py-2 text-xs text-veyra-text focus:border-veyra-text focus:outline-none rounded-xs placeholder-veyra-faint"
                 />
                 <button
                   type="submit"
-                  className="absolute right-1 top-1 bottom-1 px-3 bg-veyra-text text-white hover:bg-black/80 transition-colors rounded-sm flex items-center justify-center"
+                  className="absolute right-1 top-1 bottom-1 px-3 bg-veyra-text text-white hover:bg-black/80 transition-colors rounded-xs flex items-center justify-center cursor-pointer"
                   aria-label="Subscribe"
                 >
                   {subscribed ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <ArrowRight className="w-3.5 h-3.5" />}
@@ -108,7 +108,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Rights */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-[0.625rem] tracking-[0.2em] uppercase text-veyra-faint gap-4 font-mono">
-          <span>© {new Date().getFullYear()} VEYRA ATELIER LTD. ALL RIGHTS RESERVED.</span>
+          <span>© {new Date().getFullYear()} VEYRA · PROTOTYPE CONCEPT DEMO · MERCIAN WEALTH</span>
           
           <div className="flex flex-wrap items-center justify-center gap-6">
             <span className="hover:text-veyra-text cursor-pointer transition-colors">PRIVACY</span>

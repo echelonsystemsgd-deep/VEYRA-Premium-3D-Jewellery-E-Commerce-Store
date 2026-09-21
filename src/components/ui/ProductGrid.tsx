@@ -117,7 +117,7 @@ export const ProductGrid: React.FC = () => {
                   <img
                     src={product.image}
                     alt={`${product.name} — ${product.subtitle}`}
-                    loading="lazy"
+                    loading="eager"
                     className="w-full h-full object-contain filter contrast-[1.04] brightness-[0.99] group-hover:scale-105 transition-transform duration-600 ease-out"
                   />
                   {/* Subtle gallery contact shadow */}

@@ -45,7 +45,7 @@ const FAQS: FaqItem[] = [
     category: 'SALON',
     question: 'Can bespoke family crests or monograms be hand-carved into signet seals?',
     answer:
-      'Yes. Our London workshop specializes in deep-relief intaglio seal engraving for wax seals and personal heraldry. Bespoke commissions begin with a consultation in our Private Salon (Mayfair London, Tribeca New York, or Virtual 3D) where silversmiths develop 1:1 wax prototypes for your approval.'
+      'Yes. Our bespoke atelier protocol accommodates deep-relief intaglio seal engraving for wax seals and personal heraldry. Bespoke commissions begin with a private consultation (Virtual 3D Atelier or in-person consultation by appointment) where master artisans develop 1:1 wax models for your approval.'
   }
 ]
 

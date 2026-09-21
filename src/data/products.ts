@@ -19,6 +19,7 @@ export interface Product {
 
 export const MATERIAL_CONFIG: Record<MaterialType, {
   name: string
+  shortName: string
   color: string
   roughness: number
   metalness: number
@@ -28,6 +29,7 @@ export const MATERIAL_CONFIG: Record<MaterialType, {
 }> = {
   'oxidised-silver': {
     name: 'Oxidised Silver (925)',
+    shortName: 'Silver (925)',
     color: '#8d9297',
     roughness: 0.58,
     metalness: 0.94,
@@ -37,6 +39,7 @@ export const MATERIAL_CONFIG: Record<MaterialType, {
   },
   'blackened-bronze': {
     name: 'Blackened Bronze',
+    shortName: 'Bronze',
     color: '#463c33',
     roughness: 0.68,
     metalness: 0.88,
@@ -46,6 +49,7 @@ export const MATERIAL_CONFIG: Record<MaterialType, {
   },
   'raw-brass': {
     name: 'Unlacquered Raw Brass',
+    shortName: 'Raw Brass',
     color: '#9e7e45',
     roughness: 0.48,
     metalness: 0.92,

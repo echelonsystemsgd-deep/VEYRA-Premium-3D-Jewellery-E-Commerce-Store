@@ -87,7 +87,7 @@ export const CartDrawer: React.FC = () => {
                   ACQUISITION CONFIRMED
                 </h4>
                 <p className="text-xs text-veyra-muted tracking-[0.04em] mt-3 leading-relaxed">
-                  Your piece has entered our London silversmith workshop queue. A bespoke provenance dossier and solid wooden vault box will accompany the shipment.
+                  Your piece has entered our master silversmith atelier queue. A bespoke provenance dossier and solid wooden vault box will accompany the shipment.
                 </p>
                 <div className="mt-8">
                   <Button
@@ -124,10 +124,10 @@ export const CartDrawer: React.FC = () => {
                   return (
                     <div
                       key={item.id}
-                      className="flex gap-4 p-4 rounded-sm bg-veyra-subtle/50 border border-veyra-border"
+                      className="flex gap-4 p-4 rounded-xs bg-veyra-subtle/50 border border-veyra-border"
                     >
                       {/* Thumbnail */}
-                      <div className="w-20 h-20 bg-veyra-surface rounded-sm overflow-hidden flex-shrink-0 border border-veyra-border flex items-center justify-center">
+                      <div className="w-20 h-20 bg-veyra-surface rounded-xs overflow-hidden flex-shrink-0 border border-veyra-border flex items-center justify-center">
                         <img
                           src={item.product.image}
                           alt={item.product.name}
@@ -144,7 +144,7 @@ export const CartDrawer: React.FC = () => {
                             </h5>
                             <button
                               onClick={() => removeFromCart(index)}
-                              className="text-veyra-faint hover:text-red-500 transition-colors p-1"
+                              className="text-veyra-faint hover:text-red-500 transition-colors p-1 cursor-pointer"
                               aria-label="Remove Item"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
@@ -153,13 +153,13 @@ export const CartDrawer: React.FC = () => {
                           <div className="text-[0.625rem] tracking-[0.1em] text-veyra-muted mt-1 font-mono">
                             <span>US {item.size}</span>
                             <span className="mx-1.5">·</span>
-                            <span>{mat.name.split(' ')[0]}</span>
+                            <span>{mat.shortName}</span>
                           </div>
                         </div>
 
                         {/* Quantity and Price */}
                         <div className="flex items-center justify-between mt-3 pt-2 border-t border-veyra-border">
-                          <div className="flex items-center border border-veyra-border rounded-sm bg-veyra-surface">
+                          <div className="flex items-center border border-veyra-border rounded-xs bg-veyra-surface">
                             <button
                               onClick={() => updateQuantity(index, item.quantity - 1)}
                               className="px-2 py-0.5 text-xs text-veyra-muted hover:text-veyra-text"

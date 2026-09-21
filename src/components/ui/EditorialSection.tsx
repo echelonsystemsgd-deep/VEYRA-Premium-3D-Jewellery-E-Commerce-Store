@@ -135,7 +135,7 @@ export const EditorialSection: React.FC = () => {
                   We stand behind every piece we make, forever.
                 </p>
                 <span className="text-[0.625rem] tracking-[0.2em] font-mono text-veyra-brass uppercase pt-2">
-                  Est. VEYRA Studio 2018
+                  Permanent Metallurgy Standard
                 </span>
               </div>
             </div>

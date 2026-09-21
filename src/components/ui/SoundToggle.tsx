@@ -13,7 +13,7 @@ export const SoundToggle: React.FC<{ className?: string }> = ({ className = '' }
   return (
     <button
       onClick={handleToggle}
-      className={`flex items-center gap-1.5 px-2 py-1 rounded-xs border transition-all duration-300 font-mono text-[0.5625rem] sm:text-[0.625rem] tracking-[0.16em] uppercase cursor-pointer select-none ${
+      className={`flex items-center gap-1.5 px-2 py-1 rounded-xs border transition-all duration-300 font-mono text-[0.5625rem] sm:text-[0.625rem] tracking-[0.16em] uppercase cursor-pointer select-none whitespace-nowrap shrink-0 ${
         isPlaying
           ? 'bg-veyra-surface border-veyra-brass text-veyra-brass shadow-2xs'
           : 'bg-veyra-surface/80 hover:bg-veyra-surface border-veyra-border text-veyra-muted hover:text-veyra-text'

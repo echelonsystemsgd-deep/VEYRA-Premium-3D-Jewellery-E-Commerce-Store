@@ -61,12 +61,12 @@ export const PrivateViewingModal: React.FC = () => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 15 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-lg bg-veyra-surface border border-veyra-border p-8 sm:p-10 shadow-2xl rounded-sm z-10 text-veyra-text"
+          className="relative w-full max-w-lg bg-veyra-surface border border-veyra-border p-8 sm:p-10 shadow-2xl rounded-xs z-10 text-veyra-text"
           data-lenis-prevent="true"
         >
           <button
             onClick={handleClose}
-            className="absolute top-6 right-6 text-veyra-muted hover:text-veyra-text transition-colors"
+            className="absolute top-6 right-6 text-veyra-muted hover:text-veyra-text transition-colors p-2 cursor-pointer"
             aria-label="Close"
           >
             <X className="w-5 h-5" />
@@ -115,7 +115,7 @@ export const PrivateViewingModal: React.FC = () => {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="Lord / Lady / Collector"
-                    className="w-full bg-veyra-bg border border-veyra-border px-4 py-2.5 text-xs text-veyra-text focus:border-veyra-text focus:outline-none rounded-sm"
+                    className="w-full bg-veyra-bg border border-veyra-border px-4 py-2.5 text-xs text-veyra-text focus:border-veyra-text focus:outline-none rounded-xs"
                   />
                 </div>
 
@@ -129,7 +129,7 @@ export const PrivateViewingModal: React.FC = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="concierge@collector.com"
-                    className="w-full bg-veyra-bg border border-veyra-border px-4 py-2.5 text-xs text-veyra-text focus:border-veyra-text focus:outline-none rounded-sm"
+                    className="w-full bg-veyra-bg border border-veyra-border px-4 py-2.5 text-xs text-veyra-text focus:border-veyra-text focus:outline-none rounded-xs"
                   />
                 </div>
 
@@ -140,7 +140,7 @@ export const PrivateViewingModal: React.FC = () => {
                   <select
                     value={selectedPieceId}
                     onChange={(e) => setSelectedPieceId(e.target.value)}
-                    className="w-full bg-veyra-bg border border-veyra-border px-4 py-2.5 text-xs text-veyra-text focus:border-veyra-text focus:outline-none rounded-sm"
+                    className="w-full bg-veyra-bg border border-veyra-border px-4 py-2.5 text-xs text-veyra-text focus:border-veyra-text focus:outline-none rounded-xs cursor-pointer"
                   >
                     {PRODUCTS.map(p => (
                       <option key={p.id} value={p.id}>
@@ -152,22 +152,22 @@ export const PrivateViewingModal: React.FC = () => {
 
                 <div>
                   <label className="block text-[0.625rem] tracking-[0.2em] uppercase text-veyra-muted mb-1 font-mono">
-                    Salon Location
+                    Consultation Format
                   </label>
                   <div className="grid grid-cols-3 gap-2">
                     {[
                       { id: 'virtual', label: 'Virtual 3D' },
-                      { id: 'mayfair', label: 'London, Mayfair' },
-                      { id: 'tribeca', label: 'New York, Tribeca' }
+                      { id: 'mayfair', label: 'Salon Studio' },
+                      { id: 'tribeca', label: 'Private Concierge' }
                     ].map((salon) => (
                       <button
                         type="button"
                         key={salon.id}
                         onClick={() => setConsultationType(salon.id as any)}
-                        className={`py-2 px-1 text-center text-[0.625rem] tracking-[0.1em] uppercase border rounded-sm transition-all ${
+                        className={`py-2 px-1 text-center text-[0.625rem] tracking-[0.1em] uppercase border rounded-xs transition-all cursor-pointer ${
                           consultationType === salon.id
                             ? 'border-veyra-text bg-veyra-text text-white'
-                            : 'border-veyra-border text-veyra-muted hover:border-veyra-text/50'
+                            : 'border-veyra-border text-veyra-muted hover:border-veyra-text/50 bg-veyra-surface'
                         }`}
                       >
                         {salon.label}

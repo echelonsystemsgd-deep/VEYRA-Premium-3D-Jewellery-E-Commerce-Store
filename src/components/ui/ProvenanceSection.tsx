@@ -36,13 +36,13 @@ export const ProvenanceSection: React.FC = () => {
     },
     {
       num: '[ 03 ]',
-      title: 'Assay Hallmarking',
-      subtitle: 'London Goldsmiths’ Hall Certified',
+      title: 'Assay Hallmarking Standard',
+      subtitle: 'British Standard 925 Specification',
       image: '/images/a95lc.jpg',
       icon: ShieldCheck,
       description:
-        'Indelibly struck at Goldsmiths’ Hall in London. Legally certifies chemical purity, 925 sterling silver fineness, and authentic non-plated solid construction.',
-      specs: 'London Assay Office · British Standard 925 · Independent Verification'
+        'Engineered for indelible assay hallmarking. Conforms to chemical purity standards, 925 sterling silver fineness, and authentic non-plated solid construction.',
+      specs: 'Assay Office Compatible · British Standard 925 · Metallurgy Verification'
     }
   ]
 
@@ -74,12 +74,8 @@ export const ProvenanceSection: React.FC = () => {
             const isRightCol = (idx + 1) % 3 === 0
 
             return (
-              <motion.div
+              <div
                 key={pillar.num}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: idx * 0.12 }}
                 className={`flex flex-col justify-between p-6 sm:p-8 lg:p-10 border-b border-veyra-border hover:bg-veyra-subtle/40 transition-colors ${
                   !isRightCol ? 'md:border-r border-veyra-border' : ''
                 }`}
@@ -121,7 +117,7 @@ export const ProvenanceSection: React.FC = () => {
                 <div className="mt-6 pt-4 border-t border-veyra-border font-mono text-[0.5625rem] tracking-[0.14em] uppercase text-veyra-faint leading-tight">
                   {pillar.specs}
                 </div>
-              </motion.div>
+              </div>
             )
           })}
         </div>
